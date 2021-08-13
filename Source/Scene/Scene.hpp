@@ -22,7 +22,7 @@ public:
 	virtual void OnDestroy() = 0;
 
 public: /* Accessors */
-	const bool WantsToQuit() const noexcept { return m_quit; }
+	bool WantsToQuit() const noexcept { return m_quit; }
 
 public: /* Modifiers */
 	void EndScene() noexcept { m_quit = true; }

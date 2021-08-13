@@ -91,12 +91,12 @@ void Application::Run()
 		// Poll Events
 		m_window->PollEvents();
 
-		// Grab current active scene from back stack
-		const auto& active_scene = m_scenes.back();
-
 		// Update & Draw (only if there are scenes, otherwise end app).
 		if (!m_scenes.empty())
 		{
+			// Grab current active scene from back stack
+			const auto& active_scene = m_scenes.back();
+
 			//Update
 			{
 				// Delta time

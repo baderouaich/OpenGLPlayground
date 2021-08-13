@@ -31,9 +31,9 @@ ImGuiRenderer::ImGuiRenderer()
    
 
     // Setup Dear ImGui style
-    ImGui::StyleColorsDark();
+    //ImGui::StyleColorsDark();
     //ImGui::StyleColorsLight();
-    //ImGui::StyleColorsClassic();
+    ImGui::StyleColorsClassic();
 
 
 	// for docking branch

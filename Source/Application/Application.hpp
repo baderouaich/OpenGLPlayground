@@ -1,6 +1,11 @@
 #pragma once
 #include <Window/Window.hpp>
 
+/*
+learnopengl_book.pdf Page 28 section 4.1
+Make sure you have OpenGL versions 3.3 or higher installed on your system/hardware otherwise
+the application will crash or display undefined behavior.
+*/
 #define OPENGL_VERSION_MAJOR 3
 #define OPENGL_VERSION_MINOR 3
 
