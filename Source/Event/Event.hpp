@@ -55,7 +55,7 @@ enum class EventCategory : std::uint32_t
 inline std::uint32_t operator |(const EventCategory a, const EventCategory b) { return static_cast<std::uint32_t>(a) | static_cast<std::uint32_t>(b); }
 inline std::uint32_t operator &(const EventCategory a, const EventCategory b) { return static_cast<std::uint32_t>(a) & static_cast<std::uint32_t>(b); }
 
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return type; } \
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return static_cast<EventType>(type); } \
 								virtual EventType GetEventType() const override { return GetStaticType(); } \
 								virtual const char* GetName() const override { return #type; }
 #define EVENT_CLASS_CATEGORY(category) virtual std::uint32_t GetCategoryFlags() const override { return static_cast<std::uint32_t>(category); }

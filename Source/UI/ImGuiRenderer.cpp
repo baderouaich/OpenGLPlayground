@@ -32,8 +32,8 @@ ImGuiRenderer::ImGuiRenderer()
 
     // Setup Dear ImGui style
     //ImGui::StyleColorsDark();
-    //ImGui::StyleColorsLight();
-    ImGui::StyleColorsClassic();
+    ImGui::StyleColorsLight();
+    //ImGui::StyleColorsClassic();
 
 
 	// for docking branch
@@ -85,15 +85,16 @@ void ImGuiRenderer::End()
   ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 
-
+#if USING_DOCKING_BRANCH
  // for docking branch
- //if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
- //{
- //    GLFWwindow* backup_current_context = glfwGetCurrentContext();
- //    ImGui::UpdatePlatformWindows();
- //    ImGui::RenderPlatformWindowsDefault();
- //    glfwMakeContextCurrent(backup_current_context);
- //}
+ if (io.ConfigFlags &  ImGuiConfigFlags_ViewportsEnable)
+ {
+     GLFWwindow* backup_current_context = glfwGetCurrentContext();
+     ImGui::UpdatePlatformWindows();
+     ImGui::RenderPlatformWindowsDefault();
+     glfwMakeContextCurrent(backup_current_context);
+ }
+#endif
 }
 
 

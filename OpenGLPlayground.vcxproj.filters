@@ -63,10 +63,10 @@
     <ClInclude Include="Source\Input\Mouse\MouseCodes.hpp">
       <Filter>Source\Input\Mouse</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\MainMenuScene\MainMenuScene.hpp">
+    <ClInclude Include="Source\Scenes\MainMenuScene\MainMenuScene.hpp">
       <Filter>Source\Scene\MainMenuScene</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scene\Scene.hpp">
+    <ClInclude Include="Source\Scenes\Scene.hpp">
       <Filter>Source\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp">
@@ -87,6 +87,7 @@
     <ClInclude Include="Source\pch.hpp">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
@@ -98,7 +99,7 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scene\MainMenuScene\MainMenuScene.cpp">
+    <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp">
       <Filter>Source\Scene\MainMenuScene</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\ImGuiImpl.cpp">
@@ -113,6 +114,7 @@
     <ClCompile Include="Source\pch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="premake5.lua" />

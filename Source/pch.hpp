@@ -5,7 +5,7 @@
 
 
 /// Platform specific includes ///
-/// Platform Windows include
+/// Windows
 #if defined(PLATFORM_WINDOWS)
 	#include <Windows.h>
 	#include <TlHelp32.h>
@@ -13,15 +13,15 @@
 ///
 
 
-///OpenGL: GLAD
+/// OpenGL: GLAD
 #include <glad/glad.h>
 ///
 
-///Graphic library framwork: GLFW
+/// Graphic library framwork: GLFW
 #include <GLFW/glfw3.h>
 ///
 
-///UI: ImGui
+/// UI: ImGui
 #include <imgui.h>
 #include <backends/imgui_impl_opengl3.h>
 #include <backends/imgui_impl_glfw.h>

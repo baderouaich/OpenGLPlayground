@@ -2,7 +2,7 @@
 #include "Application.hpp"
 #include <Utility/OpenGLUtils.hpp>
 #include <UI/ImGuiRenderer.hpp>
-#include <Scene/MainMenuScene/MainMenuScene.hpp>
+#include <Scenes/MainMenuScene/MainMenuScene.hpp>
 #include <Event/EventDispatcher.hpp>
 #include <Event/ApplicationEvent.hpp>
 #include <Event/ApplicationEvent.hpp>
@@ -12,22 +12,26 @@ Application::Application()
 	:
 	m_window(new Window("OpenGL Play Ground", 800, 600))
 {
+	// Make singleton
 	if (m_instance)
-		throw std::runtime_error("Application instance already created");
-
+		throw std::runtime_error("Application instance was already created");
 	m_instance = this;
 
-	// Init imgui renderer
+	// Init ImGui Renderer
 	m_imgui_renderer = std::make_unique<ImGuiRenderer>();
 
-	// Push Main Menu Scene as initial scene
+	// Listen to Window Events callback
+	m_window->SetEventCallback(BIND_FUN(Application::OnEvent));
+
+	// Push Main Menu Scene as the initial scene
 	PushScene(std::make_unique<MainMenuScene>());
 }
 
 void Application::PushScene(std::unique_ptr<Scene> scene)
 {
-	m_scenes.emplace_back(std::move(scene));
-	m_scenes.back()->OnCreate();
+	//=== Scene::OnCreate ===//
+	m_scenes.emplace_back(std::move(scene))->OnCreate();
+	//m_scenes.back()->OnCreate();
 }
 
 void Application::UpdateDeltaTime() noexcept
@@ -49,13 +53,15 @@ void Application::OnEvent(Event& event)
 	dispatcher.Dispatch<WindowResizeEvent>(BIND_FUN(Application::OnWindowResize));
 	dispatcher.Dispatch<FrameBufferResizeEvent>(BIND_FUN(Application::OnFrameBufferResize));
 
+
+	//=== Scene::OnEvent ===//
 	// Alert All Scenes OnEvent
 	for (auto it = m_scenes.rbegin(); it != m_scenes.rend(); ++it)
 	{
 		// Alert each scene with the triggered event
 		(*it)->OnEvent(event);
 
-		// if event is handled, stop passing it to other scenes
+		// if event is handled by a scene, stop passing it to other scenes
 		if (event.IsHandled())
 			break;
 	}
@@ -63,8 +69,12 @@ void Application::OnEvent(Event& event)
 
 bool Application::OnWindowClose(WindowCloseEvent& /*event*/)
 {
-		this->m_window->SetShouldClose(true);
-		return true; // the end of the app, all events are handled.
+	/*
+		if(we shouldn't close yet, there is still some work running...)
+				this->m_window->SetShouldClose(false);
+	*/
+	this->m_window->SetShouldClose(true);
+	return true; // the end of the app, all events are handled.
 }
 
 bool Application::OnWindowResize(WindowResizeEvent& event)
@@ -94,25 +104,23 @@ void Application::Run()
 		// Update & Draw (only if there are scenes, otherwise end app).
 		if (!m_scenes.empty())
 		{
-			// Grab current active scene from back stack
-			const auto& active_scene = m_scenes.back();
-
-			//Update
+			//=== Scene::OnUpdate ===//
 			{
 				// Delta time
 				UpdateDeltaTime();
 				// Update back scene (last pushed scene which is the active one)
-				active_scene->OnUpdate(m_delta_time);
+				m_scenes.back()->OnUpdate(m_delta_time);
 			}
 
-			//Draw
+			//=== Scene::OnDraw ===//
 			{
 				// Draw back scene (last pushed scene which is the active one)
-				active_scene->OnDraw();
+				m_scenes.back()->OnDraw();
 
-				// ImGui Draw
+				//=== Scene::OnImGuiDraw ===//
+				// ImGui Draw (over opengl draws)
 				m_imgui_renderer->Begin();
-					active_scene->OnImGuiDraw();
+					m_scenes.back()->OnImGuiDraw();
 				m_imgui_renderer->End();
 
 				// Force execution of GL commands in finite time 
@@ -122,13 +130,14 @@ void Application::Run()
 			// Swap Buffers
 			m_window->SwapBuffers();
 
-			// Check if the current active scene wants to quit (scene must call EndScene to be destroyed)
-			if (active_scene->WantsToQuit())
+			// Check if the current active scene wants to quit (scene must call Scene::Exit to be destroyed)
+			if (m_scenes.back()->WantsToExit())
 			{
-				// Notify user before ending scene
-				active_scene->OnDestroy();
+				//=== Scene::OnDestroy ===//
+				// Notify user OnDestroy before ending scene
+				m_scenes.back()->OnDestroy();
 				// Destroy Scene
-				m_scenes.pop_back(); // Remove scene from vector (btw vector will call ~unique_ptr to cleanup memory)
+				m_scenes.pop_back(); // Remove scene from vector (btw vector will call ~unique_ptr to cleanup memory for us)
 			}
 
 		}
@@ -143,7 +152,7 @@ void Application::Run()
 
 Application::~Application()
 {
-	// Call Scene::OnDestroy()
+	//=== Scene::OnDestroy() ===//
 	std::for_each(m_scenes.rbegin(), m_scenes.rend(), [](const std::unique_ptr<Scene>& scene)
 	{
 		scene->OnDestroy();

@@ -3,9 +3,6 @@
 #include <GLFW/glfw3.h>
 #include <Event/Event.hpp>
 
-static constexpr auto PPG_GL_VERSION_MAJOR = 3;
-static constexpr auto PPG_GL_VERSION_MINOR = 3;
-
 class Window final
 {
 	/*
@@ -20,6 +17,8 @@ class Window final
 		$30 = 2,
 	};
 
+	using EventCallback = std::function<void(Event&)>;
+
 public:
 	Window(const std::string title, const int width, const int height);
 	~Window();
@@ -33,6 +32,7 @@ public:
 
 public:
 	void SetShouldClose(const bool should_close) noexcept;
+	void SetEventCallback(const EventCallback& callback) noexcept;
 
 public:
 	void PollEvents() const noexcept;
@@ -48,8 +48,6 @@ private:
 	GLFWwindow* m_window;
 
 private: /* Events */
-	using EventCallback = std::function<void(Event&)>;
 	EventCallback m_event_callback;
-
 };
 

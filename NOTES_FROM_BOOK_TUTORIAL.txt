@@ -1,4 +1,4 @@
-#### Notes from book ./OpenGL Tutorials/learnopengl_book.pdf ####
+#### Notes from book ./OpenGL Tutorials/LearnOpenGL_Book.pdf ####
 
 - p28 s4.1: Make sure you have OpenGL versions 3.3 or higher installed on your system/hardware otherwise
 the application will crash or display undefined behavior.
@@ -20,3 +20,19 @@ to use. Before the fragment shaders runs, clipping is performed. Clipping discar
 outside your view, increasing performance.
 
 - p34 s5: A fragment in OpenGL is all the data required for OpenGL to render a single pixel.
+
+
+- p35 s5.1: The geometry shader is optional and usually left to its default shader.
+In Modern OpenGL we are required to define at least a vertex and fragment shader of our own (there
+are no default vertex/fragment shaders on the GPU). For this reason it is often quite difficult to start learning
+Modern OpenGL since a great deal of knowledge is required before being able to render your first triangle.
+Once you do get to finally render your triangle at the end of this chapter you will end up knowing a lot more
+about graphics programming.
+
+
+- p35 s5.1: To start drawing something we have to first give OpenGL some input vertex data. OpenGL is a 3D graphics
+library so all coordinates that we specify in OpenGL are in 3D (x, y and z coordinate). OpenGL doesn’t
+simply transform all your 3D coordinates to 2D pixels on your screen; OpenGL only processes 3D coordinates
+when they’re in a specific range between -1.0 and 1.0 on all 3 axes (x, y and z). All coordinates within
+this so called normalized device coordinates range will end up visible on your screen (and all coordinates
+outside this region won’t).

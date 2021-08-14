@@ -1,5 +1,7 @@
 #pragma once
 
+#define USING_DOCKING_BRANCH false
+
 /**
 *	Ref: examples/example_glfw_opengl3/main.cpp
 */

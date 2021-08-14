@@ -1,6 +1,8 @@
 #include "pch.hpp"
 #include "Window.hpp"
+#include <Application/Application.hpp> // for opengl version define
 #include <glad/glad.h>
+#include <Event/Event.hpp>
 #include <Event/ApplicationEvent.hpp>
 #include <Event/KeyEvent.hpp>
 #include <Event/MouseEvent.hpp>
@@ -9,6 +11,8 @@ Window::Window(const std::string title, const int width, const int height)
 {
 	if (!InitGLFW(title, width, height))
 		throw std::runtime_error("Failed to initialize GLFW");
+	if (!InitGLFWCallbacks())
+		throw std::runtime_error("Failed to initialize GLFW Callbacks");
 	if (!InitGLAD())
 		throw std::runtime_error("Failed to initialize OpenGL");
 }
@@ -54,6 +58,11 @@ void Window::SetShouldClose(const bool should_close) noexcept
 	glfwSetWindowShouldClose(m_window, should_close);
 }
 
+void Window::SetEventCallback(const EventCallback& callback) noexcept
+{
+	m_event_callback = callback;
+}
+
 void Window::PollEvents() const noexcept
 {
 	glfwPollEvents();
@@ -81,21 +90,21 @@ bool Window::InitGLFW(const std::string title, const int width, const int height
 		return false;
 
 	/// Set error callback
-	glfwSetErrorCallback([](int err_code, const char* message)
-		{
-			std::cerr << "GLFW ERROR #" << err_code << ": " << message << std::endl;
-		});
+	glfwSetErrorCallback([](int err_code, const char* message) -> void
+	{
+		std::cerr << "GLFW ERROR #" << err_code << ": " << message << std::endl;
+	});
 	
 	/// Set modern opengl core profile (which enables us to use latest funcs like debugging...)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	/// Set window hints
 	//OpenGL version
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, PPG_GL_VERSION_MAJOR);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, PPG_GL_VERSION_MINOR);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, OPENGL_VERSION_MAJOR);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, OPENGL_VERSION_MINOR);
 
 	///Making window: floating, non resizable, maximized, transparent
-	glfwWindowHint(GLFW_FLOATING, GLFW_TRUE);
+	glfwWindowHint(GLFW_FLOATING, GLFW_FALSE); // always on top
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 	glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_FALSE);
@@ -124,7 +133,7 @@ bool Window::InitGLFW(const std::string title, const int width, const int height
 	glfwSwapInterval(FrameRate::Unlimited);
 
 	//Set this window as data ptr to access in callbacks to avoid static funcs headaches
-	glfwSetWindowUserPointer(m_window, m_window);
+	glfwSetWindowUserPointer(m_window, this);
 
 	return true;
 }
@@ -143,7 +152,6 @@ bool Window::InitGLFWCallbacks()
 			{
 				WindowResizeEvent event(width, height);
 				this_window.m_event_callback(event);
-
 			}
 		});
 

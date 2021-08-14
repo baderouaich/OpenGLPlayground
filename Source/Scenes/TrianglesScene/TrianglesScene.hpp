@@ -1,11 +1,11 @@
 #pragma once
-#include "Scene/Scene.hpp"
+#include "Scenes/Scene.hpp"
 
-class MainMenuScene : public Scene
+class TrianglesScene : public Scene
 {
 public:
-	MainMenuScene() = default;
-	~MainMenuScene() = default;
+	TrianglesScene() = default;
+	~TrianglesScene() = default;
 
 public: /* Scene Life Cicle */
 	void OnCreate() override;
