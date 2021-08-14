@@ -5,6 +5,7 @@
 #include <Event/EventDispatcher.hpp>
 #include <Event/KeyEvent.hpp>
 #include <glad/glad.h>
+#include <Utility/OpenGLUtils.hpp>
 
 struct Vertex
 {
@@ -25,20 +26,19 @@ struct Vertex
 };
 
 // 3 Vertices (3 points) to draw triangle (See OpenGL Tutorials/Triangle Vertices.png)
-static const std::array<Vertex, 3> TRIANGLE_VERTICES
+static const float TRIANGLE_VERTICES[]
 {
-	Vertex(-1.0f, -1.0f, 0.0f), // left bottom
-	Vertex(0.0f, 1.0f, 0.0f), // top center
-	Vertex(1.0f, -1.0f, 0.0f) // right bottom
+	-1.0f, -1.0f, 0.0f, //xyz left bottom
+	0.0f, 1.0f, 0.0f,   //xyz top center
+	1.0f, -1.0f, 0.0f   //xyz right bottom
 };
 
 void TrianglesScene::OnCreate()
 {
-	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-	std::printf("Vertex 1(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[0].data[0], TRIANGLE_VERTICES[0].data[1], TRIANGLE_VERTICES[0].data[2]);
-	std::printf("Vertex 2(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[1].data[0], TRIANGLE_VERTICES[1].data[1], TRIANGLE_VERTICES[1].data[2]);
-	std::printf("Vertex 3(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[2].data[0], TRIANGLE_VERTICES[2].data[1], TRIANGLE_VERTICES[2].data[2]);
+	//std::printf("Vertex 1(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[0].data[0], TRIANGLE_VERTICES[0].data[1], TRIANGLE_VERTICES[0].data[2]);
+	//std::printf("Vertex 2(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[1].data[0], TRIANGLE_VERTICES[1].data[1], TRIANGLE_VERTICES[1].data[2]);
+	//std::printf("Vertex 3(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[2].data[0], TRIANGLE_VERTICES[2].data[1], TRIANGLE_VERTICES[2].data[2]);
 }
 
 void TrianglesScene::OnEvent(Event& event)
@@ -64,8 +64,16 @@ void TrianglesScene::OnUpdate([[maybe_unused]] float dt)
 void TrianglesScene::OnDraw()
 {
 	// 4.6 Rendering
-	glClear(GL_COLOR_BUFFER_BIT);
+	glAssert(glClear(GL_COLOR_BUFFER_BIT));
+	glMatrixMode(GL_PROJECTION);
 
+	glAssert(glBegin(GL_TRIANGLES));
+	for (auto v : TRIANGLE_VERTICES)
+	{
+		//glAssert(glVertex3f(v.position.x, v.position.y, v.position.z));
+	}
+
+	glAssert(glEnd());
 }
 
 void TrianglesScene::OnImGuiDraw()
