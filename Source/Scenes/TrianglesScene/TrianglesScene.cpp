@@ -35,6 +35,10 @@ static const std::array<Vertex, 3> TRIANGLE_VERTICES
 void TrianglesScene::OnCreate()
 {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+
+	std::printf("Vertex 1(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[0].data[0], TRIANGLE_VERTICES[0].data[1], TRIANGLE_VERTICES[0].data[2]);
+	std::printf("Vertex 2(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[1].data[0], TRIANGLE_VERTICES[1].data[1], TRIANGLE_VERTICES[1].data[2]);
+	std::printf("Vertex 3(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[2].data[0], TRIANGLE_VERTICES[2].data[1], TRIANGLE_VERTICES[2].data[2]);
 }
 
 void TrianglesScene::OnEvent(Event& event)
@@ -45,8 +49,6 @@ void TrianglesScene::OnEvent(Event& event)
 		{
 			if (e.GetKeyCode() == KeyCode::Escape)
 			{
-				auto& data = TRIANGLE_VERTICES[0].data;
-				std::printf("Vertex 1(%.2f, %.2f, %.2f)\n", data[0], data[1], data[2]);
 				Scene::Exit();
 				return true;
 			}

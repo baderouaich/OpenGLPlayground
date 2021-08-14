@@ -1,2 +1,2 @@
 # A Playground Project To Learn OpenGL
-A Multi Scene project implementation to help learning most of opengl stuff in one project divided by scene contexts, whats not better than all in one ? (also its a static runtime project lol)
+A Multi Scene project implementation to help learning most of OpenGL stuff in one project divided by scene contexts and a main menu to organize things, whats doesn't like packed stuff ?
