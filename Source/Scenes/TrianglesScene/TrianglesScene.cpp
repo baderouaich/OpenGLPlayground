@@ -34,8 +34,6 @@ static const float TRIANGLE_VERTICES[]
 	1.0f, -1.0f, 0.0f   //xyz right bottom
 };
 
-
-
 void TrianglesScene::OnCreate()
 {
 	m_shader.reset(new Shader(
@@ -62,7 +60,7 @@ void TrianglesScene::OnCreate()
 
 					void main()
 					{
-						final_pixel_color = vec4(1.0, 1.0, 1.0, 1.0);
+						final_pixel_color = vec4(0.0, 0.0, 1.0, 1.0);
 					}
 				)"
 			},

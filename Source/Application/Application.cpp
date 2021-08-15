@@ -41,6 +41,18 @@ void Application::UpdateDeltaTime() noexcept
 	m_last_frame_time = m_current_frame_time;
 }
 
+void Application::UpdateFPS() noexcept
+{
+	m_FPS++;
+	m_FPS_timer += m_delta_time;
+	if (m_FPS_timer >= 1.0f)
+	{
+		m_window->SetTitle(m_window->GetTitle(), m_FPS);
+		m_FPS = 0;
+		m_FPS_timer = 0.0f;
+	}
+}
+
 
 void Application::OnEvent(Event& event)
 {
@@ -108,6 +120,8 @@ void Application::Run()
 			{
 				// Delta time
 				UpdateDeltaTime();
+				// FPS
+				UpdateFPS();
 				// Update back scene (last pushed scene which is the active one)
 				m_scenes.back()->OnUpdate(m_delta_time);
 			}

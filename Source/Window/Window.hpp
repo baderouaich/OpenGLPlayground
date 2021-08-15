@@ -20,7 +20,7 @@ class Window final
 	using EventCallback = std::function<void(Event&)>;
 
 public:
-	Window(const std::string title, const int width, const int height);
+	Window(std::string title, const int width, const int height);
 	~Window();
 
 public:
@@ -29,10 +29,12 @@ public:
 	GLFWwindow* GetGLFWwindow() const noexcept;
 	bool ShouldClose() const noexcept;
 	bool IsFullscreen() const noexcept;
+	const std::string& GetTitle() const noexcept;
 
 public:
 	void SetShouldClose(const bool should_close) noexcept;
 	void SetEventCallback(const EventCallback& callback) noexcept;
+	void SetTitle(const std::string& title, std::uint32_t FPS = 0) noexcept;
 
 public:
 	void PollEvents() const noexcept;
@@ -43,6 +45,9 @@ private:
 	bool InitGLFW(const std::string title, const int width, const int height);
 	bool InitGLFWCallbacks();
 
+
+private:
+	std::string m_title;
 
 private:
 	GLFWwindow* m_window;

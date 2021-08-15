@@ -7,7 +7,9 @@
 #include <Event/KeyEvent.hpp>
 #include <Event/MouseEvent.hpp>
 
-Window::Window(const std::string title, const int width, const int height)
+Window::Window(std::string title, const int width, const int height)
+	:
+	m_title(std::move(title))
 {
 	if (!InitGLFW(title, width, height))
 		throw std::runtime_error("Failed to initialize GLFW");
@@ -53,6 +55,11 @@ bool Window::IsFullscreen() const noexcept
 	return glfwGetWindowMonitor(m_window) != nullptr;
 }
 
+const std::string& Window::GetTitle() const noexcept
+{
+	return m_title;
+}
+
 void Window::SetShouldClose(const bool should_close) noexcept
 {
 	glfwSetWindowShouldClose(m_window, should_close);
@@ -66,6 +73,16 @@ void Window::SetEventCallback(const EventCallback& callback) noexcept
 void Window::PollEvents() const noexcept
 {
 	glfwPollEvents();
+}
+
+void Window::SetTitle(const std::string& title, std::uint32_t FPS) noexcept
+{
+	m_title = title;
+	std::ostringstream oss{};
+	oss << m_title;
+	if(FPS != 0)
+		oss << " - FPS: " << FPS;
+	glfwSetWindowTitle(m_window, oss.str().c_str());
 }
 
 void Window::SwapBuffers() const noexcept
@@ -107,6 +124,7 @@ bool Window::InitGLFW(const std::string title, const int width, const int height
 	glfwWindowHint(GLFW_FLOATING, GLFW_FALSE); // always on top
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 	glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);
+	glfwWindowHint(GLFW_DECORATED, GLFW_TRUE); // hide/show title bar title - [] x 
 	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_FALSE);
 
 #ifdef __APPLE__

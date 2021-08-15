@@ -34,6 +34,9 @@ public:
 	// Update dt
 	void UpdateDeltaTime() noexcept;
 
+	// Update FPS
+	void UpdateFPS() noexcept;
+
 public:
 	void OnEvent(Event& event);
 	bool OnWindowClose(WindowCloseEvent& event);
@@ -58,6 +61,10 @@ private: // Delta Time
 	float m_delta_time{ 0.0f };
 	float m_current_frame_time{ 0.0f };
 	float m_last_frame_time{ 0.0f };
+
+private: // FPS
+	std::uint32_t m_FPS{ 0 };
+	float m_FPS_timer{ 0.0f };
 
 private:
 	inline static Application* m_instance{ nullptr };
