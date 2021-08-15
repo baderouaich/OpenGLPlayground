@@ -19,11 +19,17 @@
     <Filter Include="Source\Input\Mouse">
       <UniqueIdentifier>{EDC2A1C6-D9A6-621C-4207-5D6F2E0A4D9E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Scene">
-      <UniqueIdentifier>{F300E3F2-DF63-7297-88E9-AA4D742B3E1A}</UniqueIdentifier>
+    <Filter Include="Source\Scenes">
+      <UniqueIdentifier>{C61F434F-32E0-BE85-FB1A-0803679A0362}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Scene\MainMenuScene">
-      <UniqueIdentifier>{4A5206E7-3662-B2B7-9F1B-17D68B4AA150}</UniqueIdentifier>
+    <Filter Include="Source\Scenes\MainMenuScene">
+      <UniqueIdentifier>{5D66225E-C973-5044-525A-4C2FBE661CFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scenes\TrianglesScene">
+      <UniqueIdentifier>{ACA27B50-985D-6BFC-4115-E4462DAFB58C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Shader">
+      <UniqueIdentifier>{3C3E9B4F-A8FE-1686-7139-6003DDB85B62}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\UI">
       <UniqueIdentifier>{C3068266-2F71-36DD-78AF-E782E4581432}</UniqueIdentifier>
@@ -64,10 +70,16 @@
       <Filter>Source\Input\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scenes\MainMenuScene\MainMenuScene.hpp">
-      <Filter>Source\Scene\MainMenuScene</Filter>
+      <Filter>Source\Scenes\MainMenuScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scenes\Scene.hpp">
-      <Filter>Source\Scene</Filter>
+      <Filter>Source\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp">
+      <Filter>Source\Scenes\TrianglesScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Shader\Shader.hpp">
+      <Filter>Source\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp">
       <Filter>Source\UI</Filter>
@@ -87,7 +99,6 @@
     <ClInclude Include="Source\pch.hpp">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
@@ -100,7 +111,13 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp">
-      <Filter>Source\Scene\MainMenuScene</Filter>
+      <Filter>Source\Scenes\MainMenuScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp">
+      <Filter>Source\Scenes\TrianglesScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Shader\Shader.cpp">
+      <Filter>Source\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\ImGuiImpl.cpp">
       <Filter>Source\UI</Filter>
@@ -114,7 +131,6 @@
     <ClCompile Include="Source\pch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="premake5.lua" />

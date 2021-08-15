@@ -6,6 +6,7 @@
 #include <Event/KeyEvent.hpp>
 #include <glad/glad.h>
 #include <Utility/OpenGLUtils.hpp>
+#include <Shader/Shader.hpp>
 
 struct Vertex
 {
@@ -33,8 +34,39 @@ static const float TRIANGLE_VERTICES[]
 	1.0f, -1.0f, 0.0f   //xyz right bottom
 };
 
+
+
 void TrianglesScene::OnCreate()
 {
+	m_shader.reset(new Shader(
+		{
+			{
+				Shader::ShaderType::Vertex,
+				Shader::ShaderSourceType::String,
+				R"(
+					#version 330 core
+
+					void main()
+					{
+						gl_Position = vec4(0.0, 0.0, 0.0, 0.0);
+					}
+				)"
+			},
+			{
+				Shader::ShaderType::Fragment,
+				Shader::ShaderSourceType::String,
+				R"(
+					#version 330 core
+
+					out vec4 final_pixel_color;
+
+					void main()
+					{
+						final_pixel_color = vec4(1.0, 1.0, 1.0, 1.0);
+					}
+				)"
+			},
+		}));
 
 	//std::printf("Vertex 1(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[0].data[0], TRIANGLE_VERTICES[0].data[1], TRIANGLE_VERTICES[0].data[2]);
 	//std::printf("Vertex 2(%.2f, %.2f, %.2f)\n", TRIANGLE_VERTICES[1].data[0], TRIANGLE_VERTICES[1].data[1], TRIANGLE_VERTICES[1].data[2]);
@@ -63,17 +95,22 @@ void TrianglesScene::OnUpdate([[maybe_unused]] float dt)
 
 void TrianglesScene::OnDraw()
 {
-	// 4.6 Rendering
 	glAssert(glClear(GL_COLOR_BUFFER_BIT));
-	glMatrixMode(GL_PROJECTION);
 
-	glAssert(glBegin(GL_TRIANGLES));
-	for (auto v : TRIANGLE_VERTICES)
-	{
-		//glAssert(glVertex3f(v.position.x, v.position.y, v.position.z));
-	}
+	m_shader->Bind();
 
-	glAssert(glEnd());
+	// 4.6 Rendering
+	//glAssert(glClear(GL_COLOR_BUFFER_BIT));
+	//glMatrixMode(GL_PROJECTION);
+
+	//glAssert(glBegin(GL_TRIANGLES));
+	//for (auto v : TRIANGLE_VERTICES)
+	//{
+	//	//glAssert(glVertex3f(v.position.x, v.position.y, v.position.z));
+	//}
+
+	//glAssert(glEnd());
+	m_shader->Unbind();
 }
 
 void TrianglesScene::OnImGuiDraw()

@@ -14,6 +14,14 @@ line? Those hints are called primitives and are given to OpenGL while calling an
 commands. Some of these hints are GL_POINTS, GL_TRIANGLES and GL_LINE_STRIP.
 
 
+- p27 s5: Primitives: In order for OpenGL to know what to make of your collection of coordinates and color
+values OpenGL requires you to hint what kind of render types you want to form with the
+data. Do we want the data rendered as a collection of points, a collection of triangles or
+perhaps just one long line? Those hints are called primitives and are given to OpenGL
+while calling any of the drawing commands. Some of these hints are GL_POINTS,
+GL_TRIANGLES and GL_LINE_STRIP.
+
+
 - p27 s5: The output of the geometry shader is then passed on to the rasterization stage where it maps the resulting
 primitive(s) to the corresponding pixels on the final screen, resulting in fragments for the fragment shader
 to use. Before the fragment shaders runs, clipping is performed. Clipping discards all fragments that are
@@ -36,3 +44,4 @@ simply transform all your 3D coordinates to 2D pixels on your screen; OpenGL onl
 when they’re in a specific range between -1.0 and 1.0 on all 3 axes (x, y and z). All coordinates within
 this so called normalized device coordinates range will end up visible on your screen (and all coordinates
 outside this region won’t).
+

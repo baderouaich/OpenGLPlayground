@@ -26,12 +26,14 @@ IncludeDir = {}
 IncludeDir["glfw"]			= "%{wks.location}/Dependencies/glfw/include"  -- Graphics Library Framework lib
 IncludeDir["glad"]			= "%{wks.location}/Dependencies/glad/include"-- OpenGL lib
 IncludeDir["imgui"]			= "%{wks.location}/Dependencies/imgui" 	-- UI lib
+IncludeDir["glm"]			= "%{wks.location}/Dependencies/glm/include" 	-- GLM math lib
 
 -- Organize libs solution in a single filtered directory 
 group "Dependencies"
 	include "Dependencies/glfw" --there is a premake5.lua in Dependencies/glfw/ which will be detected and set things up for us
 	include "Dependencies/glad"
 	include "Dependencies/imgui"
+	include "Dependencies/glm"
 group ""
 
 project "OpenGLPlayground"
@@ -75,7 +77,8 @@ project "OpenGLPlayground"
 		"Source", -- include Source/ dir so we can include e.g "Core/Core.hpp" directly, not to keep going back steps e.g "../../Core/Core.hpp"
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.glad}",
-		"%{IncludeDir.imgui}"
+		"%{IncludeDir.imgui}",
+		"%{IncludeDir.glm}",
 	}
 
 
@@ -85,6 +88,7 @@ project "OpenGLPlayground"
 		"glfw", -- Links glfw.lib
 		"glad", 
 		"imgui",
+		"glm",
 	}
 
 
