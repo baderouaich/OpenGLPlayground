@@ -1,1 +1,1 @@
-Reached: Vertex input page 26 section 5 (not read yet)
+Reached 5.5 Linking Vertex Attributes p 33
