@@ -9,12 +9,12 @@ int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) try
 }
 catch (const std::exception& e)
 {
-	std::cerr << e.what() << std::endl;
+	std::cerr << "[EXCEPTION THROWN]: " << e.what() << std::endl;
 	return EXIT_FAILURE;
 }
 catch (...)
 {
-	std::cerr << "UNKNOWN EXCEPTION THROWN" << std::endl;
+	std::cerr << "[UNKNOWN EXCEPTION THROWN]" << std::endl;
 	return EXIT_FAILURE;
 }
 

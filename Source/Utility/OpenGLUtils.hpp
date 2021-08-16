@@ -2,6 +2,8 @@
 #include <glad/glad.h>
 #include <cstring>
 #include <cassert>
+#include <cstddef>
+#include <cstdint>
 
 class OpenGLUtils final
 {
@@ -10,7 +12,7 @@ public:
 	/*
 	*	Convert GL Error Enum macro name to a String, returns "Unknown GLenum" on non detected macros 
 	*/
-	static constexpr const char* GetGLErrorEnumString(const GLenum& _enum) noexcept
+	static constexpr const char* GetGLErrorEnumString(const GLenum _enum) noexcept
 	{
 #define CASE_ENUM(e) case e: return #e
 		switch (_enum)
@@ -22,7 +24,7 @@ public:
 			CASE_ENUM(GL_INVALID_OPERATION);
 			CASE_ENUM(GL_INVALID_FRAMEBUFFER_OPERATION);
 			CASE_ENUM(GL_OUT_OF_MEMORY);
-			default: return "Unknown GLenum";
+			default: return "<unknown GLenum>";
 		};
 #undef CASE_ENUM
 	}
@@ -55,14 +57,21 @@ public:
 
 
 /// glAssert to handle opengl calls errors (for opengl versions less than 4.3 with no error callback func to handle errors)
-#define glAssert(call) \
-		do \
-		{ \
-			(call); \
-			const GLenum err = glGetError(); \
-			if (err != GL_NO_ERROR) \
+#ifdef DEBUG
+	#define glAssert(call) \
+			do \
 			{ \
-				assert(false && OpenGLUtils::GetGLErrorEnumString(err)); \
-			} \
-		} while (false)
+				(call); \
+				const GLenum err = glGetError(); \
+				if (err != GL_NO_ERROR) \
+				{ \
+					std::cerr << "[OpenGL Error]: " << OpenGLUtils::GetGLErrorEnumString(err) << std::endl;\
+					assert(false); \
+				} \
+			} while (false)
+#else // for full performance
+	#define glAssert(call) (call);
+#endif // DEBUG
+
+
 ///

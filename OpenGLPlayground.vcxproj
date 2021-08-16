@@ -145,6 +145,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.hpp" />
+    <ClInclude Include="Source\Graphics\Buffer\BufferLayout\BufferElement.hpp" />
+    <ClInclude Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.hpp" />
     <ClInclude Include="Source\Application\Application.hpp" />
     <ClInclude Include="Source\Event\ApplicationEvent.hpp" />
     <ClInclude Include="Source\Event\Event.hpp" />
@@ -157,29 +160,37 @@
     <ClInclude Include="Source\Scenes\MainMenuScene\MainMenuScene.hpp" />
     <ClInclude Include="Source\Scenes\Scene.hpp" />
     <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp" />
-    <ClInclude Include="Source\Shader\Shader.hpp" />
+    <ClInclude Include="Source\Graphics\Shader\Shader.hpp" />
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp" />
     <ClInclude Include="Source\UI\ImGuiWidgets.hpp" />
     <ClInclude Include="Source\Utility\FileUtils.hpp" />
     <ClInclude Include="Source\Utility\OpenGLUtils.hpp" />
     <ClInclude Include="Source\Window\Window.hpp" />
     <ClInclude Include="Source\pch.hpp" />
+    <ClInclude Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.hpp" />
+    <ClInclude Include="Source\Graphics\Buffer\VertexBufferArray\VertexBufferArray.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.cpp" />
+    <ClCompile Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.cpp" />
     <ClCompile Include="Source\Application\Application.cpp" />
     <ClCompile Include="Source\Input\Input.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp" />
     <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp" />
-    <ClCompile Include="Source\Shader\Shader.cpp" />
+    <ClCompile Include="Source\Graphics\Shader\Shader.cpp" />
     <ClCompile Include="Source\UI\ImGuiImpl.cpp" />
     <ClCompile Include="Source\UI\ImGuiRenderer.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />
     <ClCompile Include="Source\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.cpp" />
+    <ClCompile Include="Source\Graphics\Buffer\VertexBufferArray\VertexBufferArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Shaders\fragment_shader.glsl" />
+    <None Include="Resources\Shaders\vertex_shader.glsl" />
     <None Include="premake5.lua" />
   </ItemGroup>
   <ItemGroup>

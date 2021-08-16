@@ -30,7 +30,7 @@ project "glm"
 		links
 		{
 		}
-		disablewarnings{
+		disablewarnings{ -- For Visual Studio, the MSC warning number should be used to specify the warning. On other compilers, the warning should be identified by name.
 			"4201"
 		}
 
