@@ -4,8 +4,6 @@
 #include <cassert>
 #include <cstddef>
 #include <cstdint>
-#include <source_location>	// std::source_location
-#include <csignal>
 
 class OpenGLUtils final
 {
@@ -14,7 +12,7 @@ public:
 	/*
 	*	Convert GL Error Enum macro name to a String, returns "Unknown GLenum" on non detected macros 
 	*/
-	static constexpr const char* StringifyGLErrorEnum(const GLenum _enum) noexcept
+	static constexpr const char* GetGLErrorEnumString(const GLenum _enum) noexcept
 	{
 #define CASE_ENUM(e) case e: return #e
 		switch (_enum)
@@ -57,12 +55,6 @@ public:
 
 };
 
-/// Multiplatform Debug Break
-#ifdef _MSC_VER
-	#define DEBUG_BREAK() DebugBreak()
-#else  
-	#define DEBUG_BREAK() std::raise(SIGTRAP)
-#endif 
 
 /// glAssert to handle opengl calls errors (for opengl versions less than 4.3 with no error callback func to handle errors)
 #ifdef DEBUG
@@ -72,16 +64,9 @@ public:
 				(call); \
 				const GLenum err = glGetError(); \
 				if (err != GL_NO_ERROR) \
-				{  \
-					const std::source_location loc = std::source_location::current(); /* c++20 only */ \
-					std::cerr << "============= [OpenGL Error] =============\n" \
-						<< "Error: " << OpenGLUtils::StringifyGLErrorEnum(err) << '\n' \
-						<< "File: " << loc.file_name() << '\n' \
-						<< "Function: " << loc.function_name() << '\n' \
-						<< "Line: " << loc.line() << '\n' \
-						<< "Column: " << loc.column() << '\n' \
-						<< "=========================================="; \
-						DEBUG_BREAK(); \
+				{ \
+					std::cerr << "[OpenGL Error]: " << OpenGLUtils::GetGLErrorEnumString(err) << std::endl;\
+					assert(false); \
 				} \
 			} while (false)
 #else // for full performance

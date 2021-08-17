@@ -112,10 +112,8 @@ bool Window::InitGLFW(const std::string title, const int width, const int height
 		std::cerr << "GLFW ERROR #" << err_code << ": " << message << std::endl;
 	});
 	
-	/// Set modern opengl core profile 3.2+ (which enables us to use latest funcs like debugging...)
-#if OPENGL_VERSION_MAJOR >= 3 
-		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-#endif
+	/// Set modern opengl core profile (which enables us to use latest funcs like debugging...)
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	/// Set window hints
 	//OpenGL version

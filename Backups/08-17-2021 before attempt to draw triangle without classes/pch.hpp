@@ -66,7 +66,6 @@
 #include <numeric>
 #include <regex>
 #include <exception>
-#include <source_location>	// std::source_location::current() file column function...
 
 #include <cstdio>
 #include <cstdlib>

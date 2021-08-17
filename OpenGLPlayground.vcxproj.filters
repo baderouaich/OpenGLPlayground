@@ -16,6 +16,27 @@
     <Filter Include="Source\Event">
       <UniqueIdentifier>{2715F0F1-1378-7F96-BCFD-B74CA83F4B19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Graphics">
+      <UniqueIdentifier>{56D4EE92-C25F-5C57-CB70-DF4B377BB857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics\Buffer">
+      <UniqueIdentifier>{7F59FAE1-6B53-2334-54C0-B944405989A0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics\Buffer\BufferLayout">
+      <UniqueIdentifier>{C6B649E1-3270-B48B-BBCF-CE6527886AFB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics\Buffer\IndexBuffer">
+      <UniqueIdentifier>{A0B66A42-8CF2-6DAC-F504-86A3E15F16C7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics\Buffer\VertexArray">
+      <UniqueIdentifier>{8B5428DE-7790-2B48-E0A2-433FCCFDD362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics\Buffer\VertexBuffer">
+      <UniqueIdentifier>{A6D6B7A5-1290-2250-9BEF-3C2A07A8D8BF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics\Shader">
+      <UniqueIdentifier>{3C07B408-2801-DD5A-116E-736BFD0643C7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Input">
       <UniqueIdentifier>{D54334F2-C1A6-C396-6A2C-FC4C566E8F19}</UniqueIdentifier>
     </Filter>
@@ -33,9 +54,6 @@
     </Filter>
     <Filter Include="Source\Scenes\TrianglesScene">
       <UniqueIdentifier>{ACA27B50-985D-6BFC-4115-E4462DAFB58C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Shader">
-      <UniqueIdentifier>{3C3E9B4F-A8FE-1686-7139-6003DDB85B62}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\UI">
       <UniqueIdentifier>{C3068266-2F71-36DD-78AF-E782E4581432}</UniqueIdentifier>
@@ -66,6 +84,24 @@
     <ClInclude Include="Source\Event\MouseEvent.hpp">
       <Filter>Source\Event</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Graphics\Buffer\BufferLayout\BufferElement.hpp">
+      <Filter>Source\Graphics\Buffer\BufferLayout</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.hpp">
+      <Filter>Source\Graphics\Buffer\BufferLayout</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.hpp">
+      <Filter>Source\Graphics\Buffer\IndexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Buffer\VertexArray\VertexArray.hpp">
+      <Filter>Source\Graphics\Buffer\VertexArray</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.hpp">
+      <Filter>Source\Graphics\Buffer\VertexBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Graphics\Shader\Shader.hpp">
+      <Filter>Source\Graphics\Shader</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Input\Input.hpp">
       <Filter>Source\Input</Filter>
     </ClInclude>
@@ -83,9 +119,6 @@
     </ClInclude>
     <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp">
       <Filter>Source\Scenes\TrianglesScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Graphics\Shader\Shader.hpp">
-      <Filter>Source\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp">
       <Filter>Source\UI</Filter>
@@ -105,15 +138,25 @@
     <ClInclude Include="Source\pch.hpp">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.hpp" />
-    <ClInclude Include="Source\Graphics\Buffer\VertexBufferArray\VertexBufferArray.hpp" />
-    <ClInclude Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.hpp" />
-    <ClInclude Include="Source\Graphics\Buffer\BufferLayout\BufferElement.hpp" />
-    <ClInclude Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
       <Filter>Source\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.cpp">
+      <Filter>Source\Graphics\Buffer\BufferLayout</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.cpp">
+      <Filter>Source\Graphics\Buffer\IndexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Buffer\VertexArray\VertexArray.cpp">
+      <Filter>Source\Graphics\Buffer\VertexArray</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.cpp">
+      <Filter>Source\Graphics\Buffer\VertexBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Graphics\Shader\Shader.cpp">
+      <Filter>Source\Graphics\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Source\Input\Input.cpp">
       <Filter>Source\Input</Filter>
@@ -127,9 +170,6 @@
     <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp">
       <Filter>Source\Scenes\TrianglesScene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphics\Shader\Shader.cpp">
-      <Filter>Source\Shader</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UI\ImGuiImpl.cpp">
       <Filter>Source\UI</Filter>
     </ClCompile>
@@ -142,10 +182,6 @@
     <ClCompile Include="Source\pch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.cpp" />
-    <ClCompile Include="Source\Graphics\Buffer\VertexBufferArray\VertexBufferArray.cpp" />
-    <ClCompile Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.cpp" />
-    <ClCompile Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\fragment_shader.glsl">

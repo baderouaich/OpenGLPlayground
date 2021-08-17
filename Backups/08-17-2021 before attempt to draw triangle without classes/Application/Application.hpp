@@ -6,8 +6,8 @@ learnopengl_book.pdf Page 28 section 4.1
 Make sure you have OpenGL versions 3.3 or higher installed on your system/hardware otherwise
 the application will crash or display undefined behavior.
 */
-#define OPENGL_VERSION_MAJOR 1
-#define OPENGL_VERSION_MINOR 5
+#define OPENGL_VERSION_MAJOR 3
+#define OPENGL_VERSION_MINOR 3
 
 #define BIND_FUN(fun) [this](auto&&... args) -> decltype(auto) { return this->fun(std::forward<decltype(args)>(args)...); }
 

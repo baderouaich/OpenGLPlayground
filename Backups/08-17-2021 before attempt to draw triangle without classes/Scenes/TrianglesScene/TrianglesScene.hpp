@@ -18,31 +18,6 @@ public: /* Scene Life Cicle */
 	void OnImGuiDraw()  override;
 	void OnDestroy()  override;
 
-}; 
-
-
-
-#if 0
-#pragma once
-#include "Scenes/Scene.hpp"
-#include <Graphics/Shader/Shader.hpp>
-#include <Graphics/Buffer/VertexBuffer/VertexBuffer.hpp>
-#include <Graphics/Buffer/VertexArray/VertexArray.hpp>
-
-class TrianglesScene : public Scene
-{
-public:
-	TrianglesScene() = default;
-	~TrianglesScene() = default;
-
-public: /* Scene Life Cicle */
-	void OnCreate() override;
-	void OnEvent(Event& event) override;
-	void OnUpdate(float dt)  override;
-	void OnDraw()  override;
-	void OnImGuiDraw()  override;
-	void OnDestroy()  override;
-
 private: /* Initializers */
 
 	/** Create VBO, sets buffer data (trianble vertices)
@@ -68,4 +43,4 @@ private: // see example to use bellow at https://github.com/BaderEddineOuaich/Pr
 	std::shared_ptr<IndexBuffer> m_index_buffer; // TRIANGLE_VERTICES's IndexBuffer IB
 	std::shared_ptr<VertexArray> m_vertex_array; // TRIANGLE_VERTICES's VertexBufferArray VAO
 };
-#endif
+

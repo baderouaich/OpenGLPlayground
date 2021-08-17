@@ -7,15 +7,15 @@
 #include <vector>
 
 // p32 s5.5.1 Vertex Array Object (Array of VertexBuffer)
-class VertexBufferArray
+class VertexArray
 {
 public:
-	VertexBufferArray()
+	VertexArray()
 	{
 		//glCreateVertexArrays(1, &m_id); GL >= 4.5
 		glAssert(glGenVertexArrays(1, &m_id));
 	}
-	~VertexBufferArray()
+	~VertexArray()
 	{
 		glAssert(glDeleteVertexArrays(1, &m_id));
 	}

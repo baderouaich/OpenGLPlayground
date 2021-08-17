@@ -7,114 +7,6 @@
 #include <glad/glad.h>
 #include <Utility/OpenGLUtils.hpp>
 
-// 3 Vertices (3 points) to draw triangle (See OpenGL Tutorials/Triangle Vertices.png)
-std::array<float, 9> TRIANGLE_VERTICES
-{
-	/*Vertex 1 xyz */ -1.0f, -1.0f, 0.0f, // left bottom 0
-	/*Vertex 2 xyz */ 0.0f, 1.0f, 0.0f,   // top center 1
-	/*Vertex 3 xyz */ 1.0f, -1.0f, 0.0f   // right bottom 2
-
-};
-
-void TrianglesScene::OnCreate()
-{
-}
-
-void TrianglesScene::OnEvent(Event& event)
-{
-	EventDispatcher dispatcher(event);
-	// Handle Keyboard ESCAPE Press
-	dispatcher.Dispatch<KeyPressedEvent>([this](KeyPressedEvent& e) -> bool
-		{
-			if (e.GetKeyCode() == KeyCode::Escape)
-			{
-				Scene::Exit();
-				return true;
-			}
-			return false;
-		});
-
-}
-
-void TrianglesScene::OnUpdate(float dt)
-{
-	if (Input::IsKeyPressed(KeyCode::Left))
-	{
-		TRIANGLE_VERTICES[0] -= dt;
-		TRIANGLE_VERTICES[1] -= dt;
-	}
-	if (Input::IsKeyPressed(KeyCode::Right))
-	{
-		TRIANGLE_VERTICES[2] += dt;
-		TRIANGLE_VERTICES[3] += dt;
-	}
-	if (Input::IsKeyPressed(KeyCode::Up))
-	{
-		TRIANGLE_VERTICES[4] += dt;
-		TRIANGLE_VERTICES[5] += dt;
-	}
-	if (Input::IsKeyPressed(KeyCode::Down))
-	{
-		TRIANGLE_VERTICES[6] -= dt;
-		TRIANGLE_VERTICES[7] -= dt;
-	}
-	if (Input::IsKeyPressed(KeyCode::Space))
-	{
-		TRIANGLE_VERTICES[8] = 0.0f;
-	}
-}
-void TrianglesScene::OnDraw()
-{
-	glAssert(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
-	glAssert(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
-
-#if OPENGL_VERSION_MAJOR <= 2
-	glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-	glBegin(GL_TRIANGLES);
-	for (std::size_t i = 0; i < TRIANGLE_VERTICES.size(); i += 3)
-	{
-		glVertex3f(TRIANGLE_VERTICES[i + 0], TRIANGLE_VERTICES[i + 1], TRIANGLE_VERTICES[i + 2]);
-
-	}
-	glEnd();
-#else
-	#error change OPENGL_VERSION_MAJOR & OPENGL_VERSION_MINOR in Application.hpp to 3.3
-#endif
-}
-
-void TrianglesScene::OnImGuiDraw()
-{
-}
-
-void TrianglesScene::OnDestroy()
-{
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#if 0
-#include "pch.hpp"
-#include "TrianglesScene.hpp"
-#include <Application/Application.hpp>
-#include <Input/Input.hpp>
-#include <Event/EventDispatcher.hpp>
-#include <Event/KeyEvent.hpp>
-#include <glad/glad.h>
-#include <Utility/OpenGLUtils.hpp>
-
 
 
 void TrianglesScene::InitVertexBuffer()
@@ -234,7 +126,7 @@ void TrianglesScene::OnUpdate([[maybe_unused]] float dt)
 // https://github.com/JoeyDeVries/LearnOpenGL/blob/master/src/1.getting_started/2.2.hello_triangle_indexed/hello_triangle_indexed.cpp
 void TrianglesScene::OnDraw()
 {
-	//glAssert(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
+	glAssert(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
 	glAssert(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
 
 	m_shader->Bind();
@@ -268,4 +160,3 @@ void TrianglesScene::OnImGuiDraw()
 void TrianglesScene::OnDestroy()
 {
 }
-#endif
