@@ -7,7 +7,6 @@
 #include <Event/ApplicationEvent.hpp>
 #include <Event/ApplicationEvent.hpp>
 
-
 Application::Application()
 	:
 	m_window(new Window("OpenGL Play Ground", 800, 600))
@@ -22,6 +21,8 @@ Application::Application()
 
 	// Listen to Window Events callback
 	m_window->SetEventCallback(BIND_FUN(Application::OnEvent));
+
+
 
 	// Push Main Menu Scene as the initial scene
 	PushScene(std::make_unique<MainMenuScene>());

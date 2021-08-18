@@ -43,13 +43,15 @@ void MainMenuScene::OnImGuiDraw()
 		}
 
 
-		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, win_h - button_size.y - 20.0f));
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, win_h - button_size.y - 40.0f));
 		if (ImGui::Button("Exit", button_size))
 		{
 			Scene::Exit();
 		}
 
-
+		ImGui::Spacing();
+		ImGui::Separator();
+		ImGui::Spacing();
 		ImGui::Text("Press ESCAPE to exit from a scene back to main menu");
 	}
 	ImGui::End();

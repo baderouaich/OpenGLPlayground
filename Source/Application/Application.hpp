@@ -1,5 +1,8 @@
 #pragma once
 #include <Window/Window.hpp>
+#include <memory>
+#include <vector>
+#include <cstdint>
 
 /*
 learnopengl_book.pdf Page 28 section 4.1

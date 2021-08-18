@@ -37,7 +37,7 @@ public:
 		Stream = GL_STREAM_DRAW,
 	};
 
-	VertexBuffer(const DrawType draw_type)
+	explicit VertexBuffer(const DrawType draw_type)
 		:
 		m_draw_type(draw_type)
 	{

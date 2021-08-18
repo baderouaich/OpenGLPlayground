@@ -138,6 +138,8 @@
     <ClInclude Include="Source\pch.hpp">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
+    <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
