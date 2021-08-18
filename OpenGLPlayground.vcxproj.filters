@@ -140,6 +140,7 @@
     </ClInclude>
     <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
     <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
+    <ClInclude Include="Source\Timer\Timer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">

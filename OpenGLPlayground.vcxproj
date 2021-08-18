@@ -165,6 +165,7 @@
     <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp" />
     <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
     <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
+    <ClInclude Include="Source\Timer\Timer.hpp" />
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp" />
     <ClInclude Include="Source\UI\ImGuiWidgets.hpp" />
     <ClInclude Include="Source\Utility\FileUtils.hpp" />
