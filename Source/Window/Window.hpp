@@ -20,7 +20,7 @@ class Window final
 	using EventCallback = std::function<void(Event&)>;
 
 public:
-	Window(std::string title, const int width, const int height);
+	Window(const std::string & title, const int width, const int height);
 	~Window();
 
 public:
@@ -41,7 +41,7 @@ public:
 	void SwapBuffers() const noexcept;
 
 private:
-	bool InitGLFW(const std::string title, const int width, const int height);
+	bool InitGLFW(const std::string& title, const int width, const int height);
 	bool InitGLFWCallbacks();
 	bool InitGLAD();
 	bool InitOpenGLOptions();

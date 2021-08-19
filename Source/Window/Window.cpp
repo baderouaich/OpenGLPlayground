@@ -8,9 +8,9 @@
 #include <Event/MouseEvent.hpp>
 #include <Utility/OpenGLUtils.hpp>
 
-Window::Window(std::string title, const int width, const int height)
+Window::Window(const std::string & title, const int width, const int height)
 	:
-	m_title(std::move(title))
+	m_title(title)
 {
 	if (!InitGLFW(title, width, height))
 		throw std::runtime_error("Failed to initialize GLFW");
@@ -127,7 +127,7 @@ bool Window::InitOpenGLOptions()
 	return true;
 }
 
-bool Window::InitGLFW(const std::string title, const int width, const int height)
+bool Window::InitGLFW(const std::string& title, const int width, const int height)
 {
 	//INIT GLFW
 	if (glfwInit() != GLFW_TRUE)
