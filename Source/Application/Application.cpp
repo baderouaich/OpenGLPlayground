@@ -28,11 +28,7 @@ Application::Application()
 	// Push Main Menu Scene as the initial scene
 	PushScene(std::make_unique<MainMenuScene>());
 
-
-
-
-
-														 // Print some OpenGL info
+	// Print some OpenGL info
 	const GLubyte const* vendor = glGetString(GL_VENDOR);
 	const GLubyte const* renderer = glGetString(GL_RENDERER);
 	const GLubyte const* version = glGetString(GL_VERSION);
@@ -40,7 +36,7 @@ Application::Application()
 		<< "Vendor: " << vendor << '\n'
 		<< "Renderer: " << renderer << '\n'
 		<< "Version: " << version << '\n'
-		<< "==============================";
+		<< "==============================\n";
 }
 
 void Application::PushScene(std::unique_ptr<Scene> scene)

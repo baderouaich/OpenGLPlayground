@@ -82,7 +82,7 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::Spacing();
 		ImGui::Separator();
 		ImGui::Spacing();
-		ImGui::Text("Press ESCAPE to exit from a scene back to main menu");
+		ImGui::Text("**NOTE**: Press ESCAPE to exit from a scene");
 	}
 	ImGui::End();
 }

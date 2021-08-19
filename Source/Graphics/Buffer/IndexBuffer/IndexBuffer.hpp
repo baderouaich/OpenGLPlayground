@@ -4,34 +4,15 @@
 class IndexBuffer
 {
 public:
-	IndexBuffer(const std::uint32_t* indices, const std::uint32_t count)
-		:
-		m_count(count)
-	{
-		glAssert(glGenBuffers(1, &m_id));
-		this->Bind();
-		glAssert(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(decltype(indices[0])), indices, GL_STATIC_DRAW));
-	}
+	IndexBuffer(const std::uint32_t* indices, const std::uint32_t count);
+	~IndexBuffer();
 
-	~IndexBuffer() 
-	{
-		glAssert(glDeleteBuffers(1, &m_id));
-	}
-
-	void Bind() const noexcept
-	{
-		glAssert(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_id));
-	}
-	void Unbind() const noexcept
-	{
-		glAssert(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
-	}
-
-public: /* Accessors */
+public:
+	void Bind() const noexcept;
+	void Unbind() const noexcept;
+	
+public: 
 	std::uint32_t GetCount() const noexcept { return m_count; }
-
-public: /* Modifiers */
-
 
 private:
 	GLuint m_id{};

@@ -46,7 +46,7 @@ void StaticSquareScene::OnCreate()
 
 
 	// Make index buffer, to tell opengl which vertex to draw first and last..
-	auto index_buffer = std::make_shared<IndexBuffer>(SQUARE_INDICES.data(), SQUARE_INDICES.size());
+	auto index_buffer = std::make_shared<IndexBuffer>(SQUARE_INDICES.data(), static_cast<std::uint32_t>(SQUARE_INDICES.size()));
 	// Set index buffer to the vertex array
 	m_vertex_array->SetIndexBuffer(index_buffer);
 
@@ -103,8 +103,8 @@ void StaticSquareScene::OnEvent(Event& event)
 			}
 			return false;
 		});
-
 }
+
 
 void StaticSquareScene::OnUpdate(float dt)
 {
@@ -125,7 +125,8 @@ void StaticSquareScene::OnDraw()
 
 	// Draw Two triangles (indexed) will show as a Square
 	glAssert(glDrawElements(GL_TRIANGLES, m_vertex_array->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
-
+	//glDrawArrays(GL_TRIANGLES, 0, m_vertex_array->GetIndexBuffer()->GetCount() - 1 );
+	
 	// Unbind stuff
 	m_shader->Unbind();
 	m_vertex_array->Unbind();

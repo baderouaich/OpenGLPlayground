@@ -37,41 +37,20 @@ public:
 		Stream = GL_STREAM_DRAW,
 	};
 
-	explicit VertexBuffer(const DrawType draw_type)
-		:
-		m_draw_type(draw_type)
-	{
-		glAssert(glGenBuffers(1, &m_id));
-	}
+public:
+	explicit VertexBuffer(const DrawType draw_type);
+	~VertexBuffer();
 
-	~VertexBuffer()
-	{
-		glAssert(glDeleteBuffers(1, &m_id));
-	}
+public:
+	void Bind() const noexcept;
+	void Unbind() const noexcept;
 
-	void Bind() const noexcept
-	{
-		glAssert(glBindBuffer(GL_ARRAY_BUFFER, m_id));
-	}
-
-	void Unbind() const noexcept
-	{
-		glAssert(glBindBuffer(GL_ARRAY_BUFFER, 0));
-	}
-
-	void SetBufferData(const float* vertices, const GLsizeiptr size)
-	{
-		this->Bind();
-		// p29 s5.2 /We call to the glBufferData function that copies the previously defined vertex data into the buffer’s memory GPU
-		glAssert(glBufferData(GL_ARRAY_BUFFER, size, vertices, static_cast<GLenum>(m_draw_type)));
-
-	}
+public:
+	void SetBufferData(const float* vertices, const GLsizeiptr size);
 	void SetLayout(const BufferLayout& layout) noexcept { m_layout = layout; }
-
 	const BufferLayout& GetLayout() const noexcept { return m_layout; }
 
 private:
-
 #if 0
 	bool IsBound()
 	{

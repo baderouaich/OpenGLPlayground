@@ -5,24 +5,9 @@
 class BufferLayout
 {
 public:
-	BufferLayout()
-		:
-		m_elements(),
-		m_stride(0)
-	{
-
-	}
-	explicit BufferLayout(const std::initializer_list<BufferElement>& elements)
-		:
-		m_elements(elements),
-		m_stride(0)
-	{
-		CalculateOffsetsAndStride();
-	}
-	~BufferLayout()
-	{
-
-	}
+	BufferLayout();
+	explicit BufferLayout(const std::initializer_list<BufferElement>& elements);
+	~BufferLayout();
 
 public: /*Accesors*/
 	const std::vector<BufferElement>& GetElements() const noexcept { return m_elements; }
@@ -42,17 +27,7 @@ public: /*Modifiers*/
 
 
 private:
-	void CalculateOffsetsAndStride() noexcept
-	{
-		std::size_t offset = 0;
-		m_stride = 0;
-		for (auto& element : m_elements)
-		{
-			element.offset = offset;
-			offset += element.size;
-			m_stride += element.size;
-		}
-	}
+	void CalculateOffsetsAndStride() noexcept;
 
 private:
 	std::vector<BufferElement> m_elements;
