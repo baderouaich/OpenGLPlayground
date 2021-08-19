@@ -1,5 +1,10 @@
 #pragma once
 #include <Event/Event.hpp>
+#include <Event/EventDispatcher.hpp>
+#include <Event/ApplicationEvent.hpp>
+#include <Event/MouseEvent.hpp>
+#include <Event/KeyEvent.hpp>
+#include <Input/Input.hpp>
 
 /*
 *	Scene interface

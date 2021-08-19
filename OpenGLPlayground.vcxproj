@@ -145,6 +145,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Scenes\Exercices\ExercicesScene.hpp" />
+    <ClInclude Include="Source\Scenes\Exercices\Basics_Page41_Section5_8\Basics_Page41_Section5_8.hpp" />
     <ClInclude Include="Source\Application\Application.hpp" />
     <ClInclude Include="Source\Event\ApplicationEvent.hpp" />
     <ClInclude Include="Source\Event\Event.hpp" />
@@ -175,6 +177,7 @@
     <ClInclude Include="Source\Scenes\SquareScene\SquareScene.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Scenes\Exercices\ExercicesScene.cpp" />
     <ClCompile Include="Source\Application\Application.cpp" />
     <ClCompile Include="Source\Graphics\Buffer\BufferLayout\BufferLayout.cpp" />
     <ClCompile Include="Source\Graphics\Buffer\IndexBuffer\IndexBuffer.cpp" />

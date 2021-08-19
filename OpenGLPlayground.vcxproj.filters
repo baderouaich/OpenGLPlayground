@@ -142,6 +142,8 @@
     <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
     <ClInclude Include="Source\Timer\Timer.hpp" />
     <ClInclude Include="Source\Scenes\SquareScene\SquareScene.hpp" />
+    <ClInclude Include="Source\Scenes\Exercices\Basics_Page41_Section5_8\Basics_Page41_Section5_8.hpp" />
+    <ClInclude Include="Source\Scenes\Exercices\ExercicesScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
@@ -187,6 +189,7 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scenes\SquareScene\SquareScene.cpp" />
+    <ClCompile Include="Source\Scenes\Exercices\ExercicesScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\fragment_shader.glsl">

@@ -5,7 +5,8 @@
 #include <Scenes/MainMenuScene/MainMenuScene.hpp>
 #include <Event/EventDispatcher.hpp>
 #include <Event/ApplicationEvent.hpp>
-#include <Event/ApplicationEvent.hpp>
+#include <Event/MouseEvent.hpp>
+#include <Event/KeyEvent.hpp>
 
 Application::Application()
 	:

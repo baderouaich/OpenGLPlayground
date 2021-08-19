@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <Scenes/TriangleScene/TriangleScene.hpp>
 #include <Scenes/SquareScene/SquareScene.hpp>
+#include <Scenes/Exercices/ExercicesScene.hpp>
 
 void MainMenuScene::OnCreate()
 {
@@ -48,6 +49,13 @@ void MainMenuScene::OnImGuiDraw()
 		{
 			Application::GetInstance()->PushScene(std::make_unique<SquareScene>());
 		}
+
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, 270.0f));
+		if (ImGui::Button("Exercices", button_size))
+		{
+			Application::GetInstance()->PushScene(std::make_unique<ExercicesScene>());
+		}
+
 
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, win_h - button_size.y - 40.0f));
 		if (ImGui::Button("Exit", button_size))
