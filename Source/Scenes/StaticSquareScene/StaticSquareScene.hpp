@@ -3,14 +3,13 @@
 #include <Graphics/Shader/Shader.hpp>
 #include <Graphics/Buffer/VertexBuffer/VertexBuffer.hpp>
 #include <Graphics/Buffer/VertexArray/VertexArray.hpp>
-#include <Timer/TimeoutTimer.hpp>
 
 
-class SquareScene : public Scene
+class StaticSquareScene : public Scene
 {
 public:
-	SquareScene() = default;
-	~SquareScene() = default;
+	StaticSquareScene() = default;
+	~StaticSquareScene() = default;
 
 public: /* Scene Life Cicle */
 	void OnCreate() override;

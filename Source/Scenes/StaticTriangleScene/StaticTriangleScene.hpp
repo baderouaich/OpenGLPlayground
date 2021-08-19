@@ -6,11 +6,11 @@
 #include <Timer/TimeoutTimer.hpp>
 
 
-class TriangleScene : public Scene
+class StaticTriangleScene : public Scene
 {
 public:
-	TriangleScene() = default;
-	~TriangleScene() = default;
+	StaticTriangleScene() = default;
+	~StaticTriangleScene() = default;
 
 public: /* Scene Life Cicle */
 	void OnCreate() override;

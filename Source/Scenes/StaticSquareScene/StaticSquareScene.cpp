@@ -1,5 +1,5 @@
 #include "pch.hpp"
-#include "SquareScene.hpp"
+#include "StaticSquareScene.hpp"
 #include <Application/Application.hpp>
 #include <Input/Input.hpp>
 #include <Event/EventDispatcher.hpp>
@@ -25,7 +25,7 @@
 * 5- Unbind Shader & VAO
 */
 
-void SquareScene::OnCreate()
+void StaticSquareScene::OnCreate()
 {
 	// Make vertex array
 	m_vertex_array = std::make_shared<VertexArray>();
@@ -88,7 +88,7 @@ void SquareScene::OnCreate()
 }
 
 
-void SquareScene::OnEvent(Event& event)
+void StaticSquareScene::OnEvent(Event& event)
 {
 	EventDispatcher dispatcher(event);
 	// Handle Keyboard ESCAPE Press
@@ -104,11 +104,11 @@ void SquareScene::OnEvent(Event& event)
 
 }
 
-void SquareScene::OnUpdate(float dt)
+void StaticSquareScene::OnUpdate(float dt)
 {
 }
 
-void SquareScene::OnDraw()
+void StaticSquareScene::OnDraw()
 {
 	// Clear buffers
 	glAssert(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
@@ -129,13 +129,13 @@ void SquareScene::OnDraw()
 	m_vertex_array->Unbind();
 }
 
-void SquareScene::OnImGuiDraw()
+void StaticSquareScene::OnImGuiDraw()
 {
 	//ImGui::Begin("Settings");
 	//ImGui::ColorEdit4("Square Color", glm::value_ptr(m_square_color));
 	//ImGui::End();
 }
 
-void SquareScene::OnDestroy()
+void StaticSquareScene::OnDestroy()
 {
 }

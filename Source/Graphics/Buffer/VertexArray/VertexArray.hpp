@@ -68,7 +68,8 @@ public:
 		m_index_buffer = index_buffer;
 	}
 
-	const std::shared_ptr<IndexBuffer>& GetIndexBuffer()const noexcept { return m_index_buffer; }
+	const std::shared_ptr<IndexBuffer>& GetIndexBuffer() const noexcept { return m_index_buffer; }
+	const std::vector<std::shared_ptr<VertexBuffer>>& GetVertices() const noexcept { return m_vertex_buffers; }
 
 private:
 	GLuint m_id{};

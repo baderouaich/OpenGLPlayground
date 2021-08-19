@@ -2,8 +2,10 @@
 #include "MainMenuScene.hpp"
 #include <Application/Application.hpp>
 #include <glad/glad.h>
-#include <Scenes/TriangleScene/TriangleScene.hpp>
-#include <Scenes/SquareScene/SquareScene.hpp>
+#include <Scenes/StaticTriangleScene/StaticTriangleScene.hpp>
+#include <Scenes/DynamicTriangleScene/DynamicTriangleScene.hpp>
+#include <Scenes/StaticSquareScene/StaticSquareScene.hpp>
+//#include <Scenes/DynamicSquareScene/DynamicSquareScenee.hpp>
 #include <Scenes/Exercices/ExercicesScene.hpp>
 
 void MainMenuScene::OnCreate()
@@ -38,19 +40,31 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::SetCursorPos(ImVec2((win_w - title_size.x ) / 2.0f, 60.0f));
 		ImGui::Text(title);
 
-		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, 150.0f));
-		if (ImGui::Button("Triangle", button_size))
+		float y = 70.0f;
+
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
+		if (ImGui::Button("Static Triangle", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<TriangleScene>());
+			Application::GetInstance()->PushScene(std::make_unique<StaticTriangleScene>());
+		}
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
+		if (ImGui::Button("Dynamic Triangle", button_size))
+		{
+			Application::GetInstance()->PushScene(std::make_unique<DynamicTriangleScene>());
 		}
 
-		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, 200.0f));
-		if (ImGui::Button("Square", button_size))
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
+		if (ImGui::Button("Static Square", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<SquareScene>());
+			Application::GetInstance()->PushScene(std::make_unique<StaticSquareScene>());
+		}
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
+		if (ImGui::Button("Dynamic Square", button_size))
+		{
+			//Application::GetInstance()->PushScene(std::make_unique<DynamicSquareScene>());
 		}
 
-		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, 270.0f));
+		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Exercices", button_size))
 		{
 			Application::GetInstance()->PushScene(std::make_unique<ExercicesScene>());

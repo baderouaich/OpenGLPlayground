@@ -1,5 +1,5 @@
 #include "pch.hpp"
-#include "TriangleScene.hpp"
+#include "StaticTriangleScene.hpp"
 #include <Application/Application.hpp>
 #include <Input/Input.hpp>
 #include <Event/EventDispatcher.hpp>
@@ -25,7 +25,7 @@
 * 5- Unbind Shader & VAO
 */
 
-void TriangleScene::OnCreate()
+void StaticTriangleScene::OnCreate()
 {
 	// Make vertex array
 	m_vertex_array = std::make_shared<VertexArray>();
@@ -92,7 +92,7 @@ void TriangleScene::OnCreate()
 }
 
 
-void TriangleScene::OnEvent(Event& event)
+void StaticTriangleScene::OnEvent(Event& event)
 {
 	EventDispatcher dispatcher(event);
 	// Handle Keyboard ESCAPE Press
@@ -108,11 +108,11 @@ void TriangleScene::OnEvent(Event& event)
 
 }
 
-void TriangleScene::OnUpdate(float dt)
+void StaticTriangleScene::OnUpdate(float dt)
 {
 }
 
-void TriangleScene::OnDraw()
+void StaticTriangleScene::OnDraw()
 {
 	// Clear buffers
 	glAssert(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
@@ -133,14 +133,14 @@ void TriangleScene::OnDraw()
 	m_vertex_array->Unbind();
 }
 
-void TriangleScene::OnImGuiDraw()
+void StaticTriangleScene::OnImGuiDraw()
 {
 	ImGui::Begin("Settings");
 		ImGui::ColorEdit4("Triangle Color", glm::value_ptr(m_triangle_color));
 	ImGui::End();
 }
 
-void TriangleScene::OnDestroy()
+void StaticTriangleScene::OnDestroy()
 {
 }
 

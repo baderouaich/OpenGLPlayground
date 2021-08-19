@@ -117,7 +117,7 @@
     <ClInclude Include="Source\Scenes\Scene.hpp">
       <Filter>Source\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scenes\TriangleScene\TriangleScene.hpp">
+    <ClInclude Include="Source\Scenes\StaticTriangleScene\StaticTriangleScene.hpp">
       <Filter>Source\Scenes\TrianglesScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp">
@@ -141,9 +141,10 @@
     <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
     <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
     <ClInclude Include="Source\Timer\Timer.hpp" />
-    <ClInclude Include="Source\Scenes\SquareScene\SquareScene.hpp" />
+    <ClInclude Include="Source\Scenes\StaticSquareScene\StaticSquareScene.hpp" />
     <ClInclude Include="Source\Scenes\Exercices\Basics_Page41_Section5_8\Basics_Page41_Section5_8.hpp" />
     <ClInclude Include="Source\Scenes\Exercices\ExercicesScene.hpp" />
+    <ClInclude Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
@@ -173,7 +174,7 @@
     <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp">
       <Filter>Source\Scenes\MainMenuScene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scenes\TriangleScene\TriangleScene.cpp">
+    <ClCompile Include="Source\Scenes\StaticTriangleScene\StaticTriangleScene.cpp">
       <Filter>Source\Scenes\TrianglesScene</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\ImGuiImpl.cpp">
@@ -188,8 +189,9 @@
     <ClCompile Include="Source\pch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scenes\SquareScene\SquareScene.cpp" />
+    <ClCompile Include="Source\Scenes\StaticSquareScene\StaticSquareScene.cpp" />
     <ClCompile Include="Source\Scenes\Exercices\ExercicesScene.cpp" />
+    <ClCompile Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\fragment_shader.glsl">
