@@ -59,11 +59,11 @@ public:
 		glAssert(glBindBuffer(GL_ARRAY_BUFFER, 0));
 	}
 
-	void SetBufferData(const float* vertices)
+	void SetBufferData(const float* vertices, const GLsizeiptr size)
 	{
 		this->Bind();
 		// p29 s5.2 /We call to the glBufferData function that copies the previously defined vertex data into the buffer’s memory GPU
-		glAssert(glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, static_cast<GLenum>(m_draw_type)));
+		glAssert(glBufferData(GL_ARRAY_BUFFER, size, vertices, static_cast<GLenum>(m_draw_type)));
 
 	}
 	void SetLayout(const BufferLayout& layout) noexcept { m_layout = layout; }

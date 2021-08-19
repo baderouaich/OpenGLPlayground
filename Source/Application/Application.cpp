@@ -139,7 +139,7 @@ void Application::Run()
 				m_imgui_renderer->End();
 
 				// Force execution of GL commands in finite time 
-				glAssert(glFlush());
+				glAssert(glFlush()); // will throw GL_INVALID_VALUE error if you did not unbind things out of a scene
 			}
 
 			// Swap Buffers

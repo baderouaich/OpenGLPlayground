@@ -117,7 +117,7 @@
     <ClInclude Include="Source\Scenes\Scene.hpp">
       <Filter>Source\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp">
+    <ClInclude Include="Source\Scenes\TriangleScene\TriangleScene.hpp">
       <Filter>Source\Scenes\TrianglesScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp">
@@ -170,7 +170,7 @@
     <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp">
       <Filter>Source\Scenes\MainMenuScene</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp">
+    <ClCompile Include="Source\Scenes\TriangleScene\TriangleScene.cpp">
       <Filter>Source\Scenes\TrianglesScene</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\ImGuiImpl.cpp">

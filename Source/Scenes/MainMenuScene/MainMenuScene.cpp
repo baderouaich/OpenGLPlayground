@@ -2,7 +2,7 @@
 #include "MainMenuScene.hpp"
 #include <Application/Application.hpp>
 #include <glad/glad.h>
-#include <Scenes/TrianglesScene/TrianglesScene.hpp>
+#include <Scenes/TriangleScene/TriangleScene.hpp>
 
 void MainMenuScene::OnCreate()
 {
@@ -37,9 +37,9 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::Text(title);
 
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, 150.0f));
-		if (ImGui::Button("Triangles", button_size))
+		if (ImGui::Button("Triangle", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<TrianglesScene>());
+			Application::GetInstance()->PushScene(std::make_unique<TriangleScene>());
 		}
 
 

@@ -20,7 +20,7 @@ ImGuiRenderer::ImGuiRenderer()
     ImGuiIO& io = ImGui::GetIO();
     io.ConfigFlags |= ImGuiConfigFlags_NoMouseCursorChange;     //Prevent ImGui from changing cursor for GLFW	
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-	io.IniFilename = nullptr; //Disable .ini file
+	//io.IniFilename = nullptr; //Disable .ini file
 
     // for docking branch
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls

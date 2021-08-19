@@ -1,7 +1,7 @@
 #pragma once
 #include <chrono>
 
-// Timer class
+// Basic Timer class
 // Example: see how many ms took to execute a block of code
 //	Timer timer;
 //	timer.Start();

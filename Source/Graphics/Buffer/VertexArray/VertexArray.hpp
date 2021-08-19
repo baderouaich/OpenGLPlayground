@@ -22,8 +22,6 @@ public:
 
 	void Bind() const noexcept
 	{
-		if(m_index_buffer)
-			m_index_buffer->Bind();
 		glAssert(glBindVertexArray(m_id));
 	}
 
@@ -64,7 +62,7 @@ public:
 
 	void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& index_buffer)
 	{
-		glAssert(glBindVertexArray(m_id));
+		this->Bind();
 		index_buffer->Bind();
 
 		m_index_buffer = index_buffer;

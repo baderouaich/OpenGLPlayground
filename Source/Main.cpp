@@ -1,7 +1,5 @@
 #include <pch.hpp>
 #include "Application/Application.hpp"
-#include <Timer/Timer.hpp>
-
 
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) try
 {

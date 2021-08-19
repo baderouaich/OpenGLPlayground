@@ -162,7 +162,7 @@
     <ClInclude Include="Source\Input\Mouse\MouseCodes.hpp" />
     <ClInclude Include="Source\Scenes\MainMenuScene\MainMenuScene.hpp" />
     <ClInclude Include="Source\Scenes\Scene.hpp" />
-    <ClInclude Include="Source\Scenes\TrianglesScene\TrianglesScene.hpp" />
+    <ClInclude Include="Source\Scenes\TriangleScene\TriangleScene.hpp" />
     <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
     <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
     <ClInclude Include="Source\Timer\Timer.hpp" />
@@ -183,7 +183,7 @@
     <ClCompile Include="Source\Input\Input.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp" />
-    <ClCompile Include="Source\Scenes\TrianglesScene\TrianglesScene.cpp" />
+    <ClCompile Include="Source\Scenes\TriangleScene\TriangleScene.cpp" />
     <ClCompile Include="Source\UI\ImGuiImpl.cpp" />
     <ClCompile Include="Source\UI\ImGuiRenderer.cpp" />
     <ClCompile Include="Source\Window\Window.cpp" />

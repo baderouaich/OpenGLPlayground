@@ -32,6 +32,7 @@ public:
 		m_function(func),
 		m_duration(duration)
 	{}
+	
 
 
 	void Start()
@@ -68,6 +69,16 @@ public:
 		m_running = false;
 		if (m_thread->joinable())
 			m_thread->join();
+	}
+
+public:
+	void SetFunction(const std::function<void()>& func) noexcept
+	{
+		m_function = func;
+	}
+	void SetDuration(const std::chrono::steady_clock::duration& duration) noexcept
+	{
+		m_duration = duration;
 	}
 
 private:
