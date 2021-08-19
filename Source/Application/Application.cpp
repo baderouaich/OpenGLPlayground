@@ -12,6 +12,8 @@ Application::Application()
 	:
 	m_window(new Window("OpenGL Play Ground", 800, 600))
 {
+	TRACE_FUNCTION();
+
 	// Make singleton
 	if (m_instance)
 		throw std::runtime_error("Application instance was already created");
@@ -23,10 +25,22 @@ Application::Application()
 	// Listen to Window Events callback
 	m_window->SetEventCallback(BIND_FUN(Application::OnEvent));
 
-
-
 	// Push Main Menu Scene as the initial scene
 	PushScene(std::make_unique<MainMenuScene>());
+
+
+
+
+
+														 // Print some OpenGL info
+	const GLubyte const* vendor = glGetString(GL_VENDOR);
+	const GLubyte const* renderer = glGetString(GL_RENDERER);
+	const GLubyte const* version = glGetString(GL_VERSION);
+	std::cout << "=======[ OpenGL Info ]=======\n"
+		<< "Vendor: " << vendor << '\n'
+		<< "Renderer: " << renderer << '\n'
+		<< "Version: " << version << '\n'
+		<< "==============================";
 }
 
 void Application::PushScene(std::unique_ptr<Scene> scene)
@@ -83,6 +97,8 @@ void Application::OnEvent(Event& event)
 
 bool Application::OnWindowClose(WindowCloseEvent& /*event*/)
 {
+	TRACE_FUNCTION();
+
 	/*
 		if(we shouldn't close yet, there is still some work running...)
 				this->m_window->SetShouldClose(false);
@@ -93,6 +109,8 @@ bool Application::OnWindowClose(WindowCloseEvent& /*event*/)
 
 bool Application::OnWindowResize(WindowResizeEvent& event)
 {
+	TRACE_FUNCTION();
+
 	// Update OpenGL Viewport
 	glAssert(glViewport(0, 0, event.GetWidth(), event.GetHeight()));
 	return false;
@@ -102,6 +120,8 @@ bool Application::OnWindowResize(WindowResizeEvent& event)
 
 bool Application::OnFrameBufferResize(FrameBufferResizeEvent& event)
 {
+	TRACE_FUNCTION();
+
 	// Update OpenGL Viewport
 	glAssert(glViewport(0, 0, event.GetWidth(), event.GetHeight()));
 	return false;
@@ -168,6 +188,8 @@ void Application::Run()
 
 Application::~Application()
 {
+	TRACE_FUNCTION();
+
 	//=== Scene::OnDestroy() ===//
 	std::for_each(m_scenes.rbegin(), m_scenes.rend(), [](const std::unique_ptr<Scene>& scene)
 	{

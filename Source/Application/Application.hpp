@@ -14,6 +14,12 @@ the application will crash or display undefined behavior.
 
 #define BIND_FUN(fun) [this](auto&&... args) -> decltype(auto) { return this->fun(std::forward<decltype(args)>(args)...); }
 
+#if DEBUG
+	#define TRACE_FUNCTION() std::cout << __FUNCSIG__ << '\n'
+#else
+	#define TRACE_FUNCTION() 
+#endif
+
 class Scene;
 class ImGuiRenderer;
 class Event;

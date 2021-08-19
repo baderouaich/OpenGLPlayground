@@ -27,6 +27,8 @@
 
 void StaticSquareScene::OnCreate()
 {
+	TRACE_FUNCTION();
+
 	// Make vertex array
 	m_vertex_array = std::make_shared<VertexArray>();
 
@@ -138,4 +140,6 @@ void StaticSquareScene::OnImGuiDraw()
 
 void StaticSquareScene::OnDestroy()
 {
+	TRACE_FUNCTION();
+
 }

@@ -27,6 +27,8 @@
 
 void StaticTriangleScene::OnCreate()
 {
+	TRACE_FUNCTION();
+
 	// Make vertex array
 	m_vertex_array = std::make_shared<VertexArray>();
 	
@@ -142,6 +144,8 @@ void StaticTriangleScene::OnImGuiDraw()
 
 void StaticTriangleScene::OnDestroy()
 {
+	TRACE_FUNCTION();
+
 }
 
 

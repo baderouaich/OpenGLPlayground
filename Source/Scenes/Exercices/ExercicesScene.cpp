@@ -2,14 +2,13 @@
 #include "ExercicesScene.hpp"
 #include <Application/Application.hpp>
 #include <glad/glad.h>
-#include <Scenes/TriangleScene/TriangleScene.hpp>
-#include <Scenes/SquareScene/SquareScene.hpp>
 #include "Basics_Page41_Section5_8/Basics_Page41_Section5_8.hpp"
 #include <Event/EventDispatcher.hpp>
 #include <Event/KeyEvent.hpp>
 
 void ExercicesScene::OnCreate()
 {
+	TRACE_FUNCTION();
 }
 
 void ExercicesScene::OnEvent(Event& event)
@@ -64,4 +63,6 @@ void ExercicesScene::OnImGuiDraw()
 
 void ExercicesScene::OnDestroy()
 {
+	TRACE_FUNCTION();
+
 }

@@ -30,6 +30,8 @@ public:
 public: /* Scene Life Cicle */
 	void OnCreate() override
 	{
+		TRACE_FUNCTION();
+
 		// VAO
 		m_vertex_array.reset(new VertexArray());
 
@@ -133,6 +135,7 @@ public: /* Scene Life Cicle */
 
 	}
 	void OnDestroy()  override {
+		TRACE_FUNCTION();
 
 	}
 

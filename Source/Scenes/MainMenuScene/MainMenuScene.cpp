@@ -10,6 +10,8 @@
 
 void MainMenuScene::OnCreate()
 {
+	TRACE_FUNCTION();
+
 }
 
 void MainMenuScene::OnEvent([[maybe_unused]] Event& event)
@@ -87,4 +89,6 @@ void MainMenuScene::OnImGuiDraw()
 
 void MainMenuScene::OnDestroy()
 {
+	TRACE_FUNCTION();
+
 }

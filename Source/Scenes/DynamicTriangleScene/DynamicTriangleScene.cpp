@@ -27,6 +27,8 @@
 
 void DynamicTriangleScene::OnCreate()
 {
+	TRACE_FUNCTION();
+
 	// Make vertex array
 	m_vertex_array = std::make_shared<VertexArray>();
 
@@ -189,7 +191,7 @@ void DynamicTriangleScene::OnImGuiDraw()
 	if (info_showing)
 	{
 		ImGui::Begin("Info");
-		ImGui::Text("Use arrows UP DOWN LEFT RIGHT to move the triangle\nCick Space to change triangle color randomly");
+		ImGui::Text("Use arrows UP DOWN LEFT RIGHT to move the triangle\nCick Space to change triangle's color randomly");
 			if (ImGui::Button("OK"))
 			{
 				info_showing = false;
@@ -201,4 +203,6 @@ void DynamicTriangleScene::OnImGuiDraw()
 
 void DynamicTriangleScene::OnDestroy()
 {
+	TRACE_FUNCTION();
+
 }

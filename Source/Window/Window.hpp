@@ -41,9 +41,10 @@ public:
 	void SwapBuffers() const noexcept;
 
 private:
-	bool InitGLAD();
 	bool InitGLFW(const std::string title, const int width, const int height);
 	bool InitGLFWCallbacks();
+	bool InitGLAD();
+	bool InitOpenGLOptions();
 
 
 private:

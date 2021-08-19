@@ -6,6 +6,7 @@
 #include <Event/ApplicationEvent.hpp>
 #include <Event/KeyEvent.hpp>
 #include <Event/MouseEvent.hpp>
+#include <Utility/OpenGLUtils.hpp>
 
 Window::Window(std::string title, const int width, const int height)
 	:
@@ -16,7 +17,9 @@ Window::Window(std::string title, const int width, const int height)
 	if (!InitGLFWCallbacks())
 		throw std::runtime_error("Failed to initialize GLFW Callbacks");
 	if (!InitGLAD())
-		throw std::runtime_error("Failed to initialize OpenGL");
+		throw std::runtime_error("Failed to initialize Glad");
+	if (!InitOpenGLOptions())
+		throw std::runtime_error("Failed to initialize OpenGL Options");
 }
 
 Window::~Window()
@@ -97,7 +100,31 @@ bool Window::InitGLAD()
 	auto glfw_gl_proc = glfwGetProcAddress;
 	auto glad_proc = *static_cast<GLADloadproc*>((void*)&glfw_gl_proc);
 	const bool loaded = !!gladLoadGLLoader(glad_proc);
+
 	return loaded;
+}
+
+bool Window::InitOpenGLOptions()
+{
+	// TODO: do i really need all these options?
+#if 0
+#pragma region not yet
+	glAssert(glEnable(GL_DEPTH_TEST)); // TO USE THE Z COORDINATE
+
+	//DONT DRAW BACK FACES OF DRAWINGS, tell gl to cull back face
+	//glAssert(glEnable(GL_CULL_FACE));
+	//glAssert(glCullFace(GL_BACK));
+
+	glAssert(glFrontFace(GL_CCW)); // DRAW FRONT FACE DRAWINGS INDICES CLOCK WISE 
+
+	glAssert(glEnable(GL_BLEND)); // ENABLE BLENDING
+
+	glAssert(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)); // TEXTURES ALPHA BLENDING
+
+	glAssert(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)); // DRAW BACK AND FRONT OF DRAWINGS FILLED (USE GL_LINE OR LINES or other opts)}
+#pragma endregion
+#endif
+	return true;
 }
 
 bool Window::InitGLFW(const std::string title, const int width, const int height)
