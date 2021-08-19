@@ -172,6 +172,7 @@
     <ClInclude Include="Source\Utility\OpenGLUtils.hpp" />
     <ClInclude Include="Source\Window\Window.hpp" />
     <ClInclude Include="Source\pch.hpp" />
+    <ClInclude Include="Source\Scenes\SquareScene\SquareScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp" />
@@ -190,6 +191,7 @@
     <ClCompile Include="Source\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\SquareScene\SquareScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\fragment_shader.glsl" />

@@ -128,7 +128,6 @@ void TriangleScene::OnDraw()
 	// Draw triangle
 	glAssert(glDrawElements(GL_TRIANGLES, m_vertex_array->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
 
-
 	// Unbind stuff
 	m_shader->Unbind();
 	m_vertex_array->Unbind();

@@ -141,6 +141,7 @@
     <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
     <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
     <ClInclude Include="Source\Timer\Timer.hpp" />
+    <ClInclude Include="Source\Scenes\SquareScene\SquareScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
@@ -185,6 +186,7 @@
     <ClCompile Include="Source\pch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\SquareScene\SquareScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\fragment_shader.glsl">
