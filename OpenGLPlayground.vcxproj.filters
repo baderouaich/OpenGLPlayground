@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{000BCD17-6C75-818E-B5B3-3234215D5FE3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources\Shaders">
-      <UniqueIdentifier>{D92F8C3C-4546-8AD2-8EBD-15F4FA125B5A}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{56EB95D1-428D-C0A7-2B48-D4FB178947F8}</UniqueIdentifier>
     </Filter>
@@ -49,11 +43,26 @@
     <Filter Include="Source\Scenes">
       <UniqueIdentifier>{C61F434F-32E0-BE85-FB1A-0803679A0362}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Scenes\DynamicTriangleScene">
+      <UniqueIdentifier>{9E741319-8AB0-1683-F3C2-2E7ADF1DBF9D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scenes\Exercices">
+      <UniqueIdentifier>{30C3E130-9CFA-29C8-A504-8EEB11BB50C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scenes\Exercices\Basics_Page41_Section5_8">
+      <UniqueIdentifier>{75891945-6132-8174-8AC8-9CF376D09BB5}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source\Scenes\MainMenuScene">
       <UniqueIdentifier>{5D66225E-C973-5044-525A-4C2FBE661CFB}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\Scenes\TrianglesScene">
-      <UniqueIdentifier>{ACA27B50-985D-6BFC-4115-E4462DAFB58C}</UniqueIdentifier>
+    <Filter Include="Source\Scenes\StaticSquareScene">
+      <UniqueIdentifier>{7C8E041C-E871-135C-F174-41985DD7D9AC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scenes\StaticTriangleScene">
+      <UniqueIdentifier>{8178BCFD-EDE6-117D-36D0-CC7CA27D0719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Timer">
+      <UniqueIdentifier>{A684F8F2-92E7-8797-3B6D-C04D27AF531A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source\UI">
       <UniqueIdentifier>{C3068266-2F71-36DD-78AF-E782E4581432}</UniqueIdentifier>
@@ -111,14 +120,35 @@
     <ClInclude Include="Source\Input\Mouse\MouseCodes.hpp">
       <Filter>Source\Input\Mouse</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.hpp">
+      <Filter>Source\Scenes\DynamicTriangleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\Exercices\Basics_Page41_Section5_8\Basics_Page41_Section5_8.hpp">
+      <Filter>Source\Scenes\Exercices\Basics_Page41_Section5_8</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scenes\Exercices\ExercicesScene.hpp">
+      <Filter>Source\Scenes\Exercices</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Scenes\MainMenuScene\MainMenuScene.hpp">
       <Filter>Source\Scenes\MainMenuScene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scenes\Scene.hpp">
       <Filter>Source\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Scenes\StaticSquareScene\StaticSquareScene.hpp">
+      <Filter>Source\Scenes\StaticSquareScene</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Scenes\StaticTriangleScene\StaticTriangleScene.hpp">
-      <Filter>Source\Scenes\TrianglesScene</Filter>
+      <Filter>Source\Scenes\StaticTriangleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer\IntervalTimer.hpp">
+      <Filter>Source\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer\TimeoutTimer.hpp">
+      <Filter>Source\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Timer\Timer.hpp">
+      <Filter>Source\Timer</Filter>
     </ClInclude>
     <ClInclude Include="Source\UI\ImGuiRenderer.hpp">
       <Filter>Source\UI</Filter>
@@ -138,13 +168,6 @@
     <ClInclude Include="Source\pch.hpp">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Timer\IntervalTimer.hpp" />
-    <ClInclude Include="Source\Timer\TimeoutTimer.hpp" />
-    <ClInclude Include="Source\Timer\Timer.hpp" />
-    <ClInclude Include="Source\Scenes\StaticSquareScene\StaticSquareScene.hpp" />
-    <ClInclude Include="Source\Scenes\Exercices\Basics_Page41_Section5_8\Basics_Page41_Section5_8.hpp" />
-    <ClInclude Include="Source\Scenes\Exercices\ExercicesScene.hpp" />
-    <ClInclude Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application\Application.cpp">
@@ -171,11 +194,20 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.cpp">
+      <Filter>Source\Scenes\DynamicTriangleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scenes\Exercices\ExercicesScene.cpp">
+      <Filter>Source\Scenes\Exercices</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Scenes\MainMenuScene\MainMenuScene.cpp">
       <Filter>Source\Scenes\MainMenuScene</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Scenes\StaticSquareScene\StaticSquareScene.cpp">
+      <Filter>Source\Scenes\StaticSquareScene</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Scenes\StaticTriangleScene\StaticTriangleScene.cpp">
-      <Filter>Source\Scenes\TrianglesScene</Filter>
+      <Filter>Source\Scenes\StaticTriangleScene</Filter>
     </ClCompile>
     <ClCompile Include="Source\UI\ImGuiImpl.cpp">
       <Filter>Source\UI</Filter>
@@ -189,17 +221,8 @@
     <ClCompile Include="Source\pch.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Scenes\StaticSquareScene\StaticSquareScene.cpp" />
-    <ClCompile Include="Source\Scenes\Exercices\ExercicesScene.cpp" />
-    <ClCompile Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Shaders\fragment_shader.glsl">
-      <Filter>Resources\Shaders</Filter>
-    </None>
-    <None Include="Resources\Shaders\vertex_shader.glsl">
-      <Filter>Resources\Shaders</Filter>
-    </None>
     <None Include="premake5.lua" />
   </ItemGroup>
 </Project>

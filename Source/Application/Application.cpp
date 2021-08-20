@@ -29,9 +29,9 @@ Application::Application()
 	PushScene(std::make_unique<MainMenuScene>());
 
 	// Print some OpenGL info
-	const GLubyte const* vendor = glGetString(GL_VENDOR);
-	const GLubyte const* renderer = glGetString(GL_RENDERER);
-	const GLubyte const* version = glGetString(GL_VERSION);
+	const GLubyte* vendor = glGetString(GL_VENDOR);
+	const GLubyte* renderer = glGetString(GL_RENDERER);
+	const GLubyte* version = glGetString(GL_VERSION);
 	std::cout << "=======[ OpenGL Info ]=======\n"
 		<< "Vendor: " << vendor << '\n'
 		<< "Renderer: " << renderer << '\n'

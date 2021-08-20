@@ -38,6 +38,12 @@
 ///
 
 
+// TODO: include me on Texture.cpp, not gonna work here
+/// stb tools: stb_image
+//#define STB_IMAGE_IMPLEMENTATION
+//#include <stb/stb_image.h>
+///
+
 
 ///the C++ Standard Libraries
 #include <iostream>

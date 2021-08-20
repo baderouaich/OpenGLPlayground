@@ -27,6 +27,7 @@ IncludeDir["glfw"]			= "%{wks.location}/Dependencies/glfw/include"  -- Graphics 
 IncludeDir["glad"]			= "%{wks.location}/Dependencies/glad/include"-- OpenGL lib
 IncludeDir["imgui"]			= "%{wks.location}/Dependencies/imgui" 	-- UI lib
 IncludeDir["glm"]			= "%{wks.location}/Dependencies/glm/include" 	-- GLM math lib
+IncludeDir["stb"]			= "%{wks.location}/Dependencies/stb/include" 	-- stb utils (image...)
 
 -- Organize libs solution in a single filtered directory 
 group "Dependencies"
@@ -34,6 +35,7 @@ group "Dependencies"
 	include "Dependencies/glad"
 	include "Dependencies/imgui"
 	include "Dependencies/glm"
+	include "Dependencies/stb"
 group ""
 
 project "OpenGLPlayground"
@@ -75,6 +77,7 @@ project "OpenGLPlayground"
 		"%{IncludeDir.glad}",
 		"%{IncludeDir.imgui}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb}",
 	}
 
 
@@ -85,6 +88,7 @@ project "OpenGLPlayground"
 		"glad", 
 		"imgui",
 		"glm",
+		"stb",
 	}
 
 
