@@ -1,4 +1,2 @@
-#ifndef STB_IMAGE_STATIC  /* just to make sure */
-	#define STB_IMAGE_STATIC
-#endif
+#define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>

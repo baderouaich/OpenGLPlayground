@@ -157,6 +157,7 @@
     <ClInclude Include="Source\Graphics\Buffer\VertexArray\VertexArray.hpp" />
     <ClInclude Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.hpp" />
     <ClInclude Include="Source\Graphics\Shader\Shader.hpp" />
+    <ClInclude Include="Source\Graphics\Texture\Texture.hpp" />
     <ClInclude Include="Source\Input\Input.hpp" />
     <ClInclude Include="Source\Input\Keyboard\KeyCodes.hpp" />
     <ClInclude Include="Source\Input\Mouse\MouseCodes.hpp" />
@@ -184,6 +185,7 @@
     <ClCompile Include="Source\Graphics\Buffer\VertexArray\VertexArray.cpp" />
     <ClCompile Include="Source\Graphics\Buffer\VertexBuffer\VertexBuffer.cpp" />
     <ClCompile Include="Source\Graphics\Shader\Shader.cpp" />
+    <ClCompile Include="Source\Graphics\Texture\Texture.cpp" />
     <ClCompile Include="Source\Input\Input.cpp" />
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\Scenes\DynamicTriangleScene\DynamicTriangleScene.cpp" />
@@ -200,6 +202,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="premake5.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\Textures\Cat1.jpg" />
+    <Image Include="Resources\Textures\Cat2.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Dependencies\glfw\glfw.vcxproj">

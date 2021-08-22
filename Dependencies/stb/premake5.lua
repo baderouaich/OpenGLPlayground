@@ -16,12 +16,11 @@ project "stb"
 
 	files
 	{
-		"src/stb.c", -- stb.c has available stb tools include with macro STB_IMAGE_STATIC if not defined, to compile as static lib
+		"src/stb.c", -- stb.c has available stb tools include with macro STB_IMAGE_IMPLEMENTATION to compile as static lib
 	}
 
 	defines
 	{
-		"STB_IMAGE_STATIC",
 		-- NOTE: you must define STB_IMAGE_IMPLEMENTATION before including stb_image in a source file
 	}
 

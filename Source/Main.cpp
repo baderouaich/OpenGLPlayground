@@ -2,7 +2,6 @@
 #include "Application/Application.hpp"
 
 
-
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) try
 {
 	std::unique_ptr<Application> _App(new Application());
