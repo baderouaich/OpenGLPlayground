@@ -42,10 +42,14 @@ public:
 	~VertexBuffer();
 
 public:
+	//VertexBuffer& Bind() const noexcept;
+	//VertexBuffer& Unbind() const noexcept;
 	void Bind() const noexcept;
 	void Unbind() const noexcept;
 
 public:
+	//VertexBuffer& SetBufferData(const float* vertices, const GLsizeiptr size);
+	//VertexBuffer& SetLayout(const BufferLayout& layout) noexcept { m_layout = layout; }
 	void SetBufferData(const float* vertices, const GLsizeiptr size);
 	void SetLayout(const BufferLayout& layout) noexcept { m_layout = layout; }
 	const BufferLayout& GetLayout() const noexcept { return m_layout; }

@@ -110,7 +110,7 @@ void StaticTriangleScene::OnEvent(Event& event)
 
 }
 
-void StaticTriangleScene::OnUpdate(float dt)
+void StaticTriangleScene::OnUpdate([[maybe_unused]] float dt)
 {
 }
 
@@ -138,7 +138,7 @@ void StaticTriangleScene::OnDraw()
 void StaticTriangleScene::OnImGuiDraw()
 {
 	ImGui::Begin("Settings");
-		ImGui::ColorEdit4("Triangle Color", glm::value_ptr(m_triangle_color));
+		ImGui::ColorEdit4("Triangle Color [uniform vec4 u_Color;]", glm::value_ptr(m_triangle_color));
 	ImGui::End();
 }
 

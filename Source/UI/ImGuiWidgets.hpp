@@ -76,49 +76,11 @@ public:
 		ImGui::PushItemWidth(width);
 		return ImGui::InputTextWithHint(label, hint, (char*)str->c_str(), str->capacity() + 1, flags, InputTextCallback, &cb_user_data);
 	}
-
-#if 0
-	static int InputTextCallback(ImGuiInputTextCallbackData* data)
-	{
-		if (data->EventFlag == static_cast<decltype(data->EventFlag)>(ImGuiInputTextFlags_CallbackResize))
-		{
-			// Resize string callback
-			std::string* str = (std::string*)data->UserData;
-			IM_ASSERT(data->Buf == str->c_str());
-			str->resize(data->BufTextLen);
-			data->Buf = (char*)str->c_str();
-		}
-		return 0;
-	}
-	static bool InputTextMultiline(const char* label, std::string* str, const ImVec2& size = ImVec2(0, 0), ImGuiInputTextFlags flags = 0)
-	{
-		flags |= ImGuiInputTextFlags_CallbackResize;
-		return ImGui::InputTextMultiline(label, (char*)str->c_str(), str->capacity() + 1, size, flags, ImGuiWidgets::InputTextCallback, (void*)str);
-	}
-	static bool InputText(const char* label, std::string* str, const float width, ImGuiInputTextFlags flags = 0)
-	{
-		ImGui::PushItemWidth(width);
-		flags |= ImGuiInputTextFlags_CallbackResize;
-		bool ret = ImGui::InputText(label, (char*)str->c_str(), str->capacity() + 1, flags, ImGuiWidgets::InputTextCallback, (void*)str);
-		ImGui::PopItemWidth();
-		return ret;
-	}
-	static bool InputTextWithHint(const char* label, const char* hint, std::string* str, const float width, ImGuiInputTextFlags flags = 0)
-	{
-		ImGui::PushItemWidth(width);
-		flags |= ImGuiInputTextFlags_CallbackResize;
-		bool ret = ImGui::InputTextWithHint(label, hint, (char*)str->c_str(), str->capacity() + 1, flags, ImGuiWidgets::InputTextCallback, (void*)str);
-		ImGui::PopItemWidth();
-		return ret;
-
-	}
-#endif
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 
 
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	// Loading spinner https://github.com/ocornut/imgui/issues/1901
 	static bool LoadingSpinner(const char* label, float radius, float thickness, const ImU32 color) {
 		ImGuiWindow* window = ImGui::GetCurrentWindow();
@@ -205,7 +167,6 @@ public:
 
 		return true;
 	}
-
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 };

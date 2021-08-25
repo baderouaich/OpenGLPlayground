@@ -124,28 +124,13 @@ void DynamicTriangleScene::OnEvent(Event& event)
 void DynamicTriangleScene::OnUpdate(float dt)
 {
 	///========= MOVEMENT =========///
-// to make triangle go up, all vertices should go up
+    // to make triangle go up, all vertices should go up
 	static float* vertex_xyz_1 = m_vertices.data() + 0;  // Vertex 1 x,y,z
 	static float* vertex_xyz_2 = m_vertices.data() + 3;  // Vertex 2 x,y,z
 	static float* vertex_xyz_3 = m_vertices.data() + 6;  // Vertex 3 x,y,z
 
 	const static float SPEED = 2.0f;
 
-	// UP
-	if (Input::IsKeyPressed(KeyCode::Up))
-	{
-		vertex_xyz_1[1] += SPEED * dt; // vertex1.y+
-		vertex_xyz_2[1] += SPEED * dt; // vertex2.y+
-		vertex_xyz_3[1] += SPEED * dt; // vertex3.y+
-
-	}
-	// DOWN
-	else if (Input::IsKeyPressed(KeyCode::Down))
-	{
-		vertex_xyz_1[1] -= SPEED * dt; // vertex1.y-
-		vertex_xyz_2[1] -= SPEED * dt; // vertex2.y-
-		vertex_xyz_3[1] -= SPEED * dt; // vertex3.y-
-	}
 	// LEFT
 	if (Input::IsKeyPressed(KeyCode::Left))
 	{
@@ -160,6 +145,21 @@ void DynamicTriangleScene::OnUpdate(float dt)
 		vertex_xyz_1[0] += SPEED * dt; // vertex1.x+
 		vertex_xyz_2[0] += SPEED * dt; // vertex2.x+
 		vertex_xyz_3[0] += SPEED * dt; // vertex3.x+
+	}
+	// UP
+	if (Input::IsKeyPressed(KeyCode::Up))
+	{
+		vertex_xyz_1[1] += SPEED * dt; // vertex1.y+
+		vertex_xyz_2[1] += SPEED * dt; // vertex2.y+
+		vertex_xyz_3[1] += SPEED * dt; // vertex3.y+
+
+	}
+	// DOWN
+	else if (Input::IsKeyPressed(KeyCode::Down))
+	{
+		vertex_xyz_1[1] -= SPEED * dt; // vertex1.y-
+		vertex_xyz_2[1] -= SPEED * dt; // vertex2.y-
+		vertex_xyz_3[1] -= SPEED * dt; // vertex3.y-
 	}
 
 	// Update vertex buffer data (in gpu)

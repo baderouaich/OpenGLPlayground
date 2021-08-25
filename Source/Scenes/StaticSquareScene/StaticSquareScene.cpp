@@ -106,7 +106,7 @@ void StaticSquareScene::OnEvent(Event& event)
 }
 
 
-void StaticSquareScene::OnUpdate(float dt)
+void StaticSquareScene::OnUpdate([[maybe_unused]] float dt)
 {
 }
 

@@ -21,8 +21,7 @@ Solution: /src/1.getting_started/2.5.hello_triangle_exercise3/
 #include <Graphics/Buffer/VertexArray/VertexArray.hpp>
 
 class Basics_Page41_Section5_8 : public Scene
-{
-	
+{	
 public:
 	Basics_Page41_Section5_8() = default;
 	~Basics_Page41_Section5_8() = default;
@@ -31,37 +30,46 @@ public: /* Scene Life Cicle */
 	void OnCreate() override
 	{
 		TRACE_FUNCTION();
-
+	
 		// VAO
 		m_vertex_array.reset(new VertexArray());
 
 
 		// VBO
-		float triangle_vertices[]
+		// See OpenGL Tutorials/Basics_Page41_Section5_8_Vertices.png
+		float two_triangle_vertices[]
 		{
-			0.0f, 0.5f, 0.0f, // top center 0
+			// First triangle
+			-0.5f, 0.5f, 0.0f,   // top left 0
 			-0.5f, -0.5f, 0.0f, // bottom left 1
-			0.5f, -0.5f, 0.0f, // bottom right 2
-		};
-		auto vertex_buffer = std::make_shared<VertexBuffer>(VertexBuffer::DrawType::Dynamic);
-		vertex_buffer->SetBufferData(triangle_vertices, sizeof triangle_vertices);
+			0.5f, -0.5f, 0.0f,  // bottom right 2
 
+			// Second triangle
+			-0.5f, 0.5f, 0.0f,   // top left 4
+			0.5f, 0.5f, 0.0f, // top right 5
+			0.5f, -0.5f, 0.0f,  // bottom right 6
+
+		};
+		auto vertex_buffer = std::make_shared<VertexBuffer>(VertexBuffer::DrawType::Static);
+		vertex_buffer->SetBufferData(two_triangle_vertices, sizeof two_triangle_vertices);
+
+		// tell opengl about our vertices layout, what they contain
 		BufferLayout layout(
 			{
-				BufferElement(Shader::ShaderDataType::Vec3f, "v_Position") // vertices contain position only
+				BufferElement(Shader::ShaderDataType::Vec3f, "v_Position"), // vertices contain position only
 			}
 		);
 		vertex_buffer->SetLayout(layout);
-
 		m_vertex_array->AddVertexBuffer(vertex_buffer);
 		
 
 		// IBO
-		unsigned int indices[]
+		constexpr std::array<unsigned int, 6> indices
 		{
-			0, 1, 2
+			0, 1, 2, // to draw first triangle
+			3, 4, 5  // to draw second triangle
 		};
-		auto index_buffer = std::make_shared<IndexBuffer>(indices, 3);
+		auto index_buffer = std::make_shared<IndexBuffer>(indices);
 		m_vertex_array->SetIndexBuffer(index_buffer);
 
 
@@ -75,12 +83,9 @@ public: /* Scene Life Cicle */
 						#version 330 core
 						layout(location = 0) in vec3 v_Position;
 
-						out vec3 color; // to send to fragment after assigning v_Position to it
-
 						void main()
 						{
-							color = v_Position;
-							gl_Position = vec4(v_Position, 1.0); // 1.0 at w end is VERY IMPORTANT to display draws!!!
+							gl_Position = vec4(v_Position, 1.0);
 						}
 					)"
 				},
@@ -90,10 +95,10 @@ public: /* Scene Life Cicle */
 					R"(
 						#version 330 core
 						out vec4 final_color;
-						in vec3 color;
+						vec4 WHITE = vec4(1.0, 1.0, 1.0, 1.0);
 						void main()
 						{
-							final_color = vec4(color, 1.0);
+							final_color = WHITE; // white
 						}
 					)"
 				},
@@ -101,7 +106,9 @@ public: /* Scene Life Cicle */
 		));
 
 	}
-	void OnEvent(Event& event) override {
+	
+	void OnEvent(Event& event) override
+	{
 		EventDispatcher dispatcher(event);
 		// Handle Keyboard ESCAPE Press
 		dispatcher.Dispatch<KeyPressedEvent>([this](KeyPressedEvent& e) -> bool
@@ -114,10 +121,13 @@ public: /* Scene Life Cicle */
 				return false;
 			});
 	}
-	void OnUpdate(float dt)  override {
-	
+
+	void OnUpdate([[maybe_unused]] float dt)  override 
+	{
 	}
-	void OnDraw()  override {
+
+	void OnDraw()  override 
+	{
 		// Clear buffers
 		glAssert(glClearColor(0.2f, 0.3f, 0.3f, 1.0f));
 		glAssert(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT));
@@ -125,16 +135,22 @@ public: /* Scene Life Cicle */
 		m_shader->Bind();
 		m_vertex_array->Bind();
 
-			glAssert(glDrawElements(GL_TRIANGLES, m_vertex_array->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
+		glDrawArrays(GL_TRIANGLES, 0, m_vertex_array->GetIndexBuffer()->GetCount());
+		//glAssert(glDrawElements(GL_TRIANGLES, m_vertex_array->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr));
 	
 		m_shader->Unbind();
 		m_vertex_array->Unbind();
 
 	}
-	void OnImGuiDraw()  override {
 
+	void OnImGuiDraw()  override 
+	{
+		//ImGui::Begin(typeid(this).name());
+		//ImGui::End();
 	}
-	void OnDestroy()  override {
+
+	void OnDestroy()  override
+	{
 		TRACE_FUNCTION();
 
 	}
@@ -142,6 +158,4 @@ public: /* Scene Life Cicle */
 private:
 	std::shared_ptr<VertexArray> m_vertex_array;
 	std::shared_ptr<Shader> m_shader;
-
 };
-
