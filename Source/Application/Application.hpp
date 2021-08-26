@@ -3,21 +3,18 @@
 #include <memory>
 #include <vector>
 #include <cstdint>
+#define CC1(a, b) a##b
+#define CC(a, b) CC1(a, b)
 
-/*
-LearnOpenGL_Book.pdf Page 28 section 4.1
-Make sure you have OpenGL versions 3.3 or higher installed on your system/hardware otherwise
-the application will crash or display undefined behavior.
-*/
 #define OPENGL_VERSION_MAJOR 3
 #define OPENGL_VERSION_MINOR 3
 
-#define BIND_FUN(fun) [this](auto&&... args) -> decltype(auto) { return this->fun(std::forward<decltype(args)>(args)...); }
+#define IMJPEG_BIND_FUN(fun) [this](auto&&... args) -> decltype(auto) { return this->fun(std::forward<decltype(args)>(args)...); }
 
-#if DEBUG
-	#define TRACE_FUNCTION() [[maybe_unused]] const auto _CONCAT(_, __LINE) = std::printf("%s\n",  __FUNCTION__);
+#if IMJPEG_DEBUG
+	#define IMJPEG_TRACE_FUNCTION() [[maybe_unused]] const auto CC(_, __LINE) = std::printf("%s\n",  __FUNCTION__);
 #else
-	#define TRACE_FUNCTION() 
+	#define IMJPEG_TRACE_FUNCTION() 
 #endif
 
 class Scene;

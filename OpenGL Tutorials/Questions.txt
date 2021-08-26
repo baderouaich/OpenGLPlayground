@@ -1,8 +1,0 @@
-[
-# when to use glDrawArrays and glDrawElements?
-glDrawArrays well just draw an array of vertex points, Where glDrawElements Will draw the vertex points from an array that also has an index array bound to it
-glDrawElements can save on how many vertex points you need to send to the GPU
- they even have a better option too, at lest for a particle system. The 
-glDrawElementsInstanced(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0, m_size);
- this lets you define the object once and draw it m_size times. Little harder to setup tho but pretty cool for drawing thousands of objects in 1 draw call.
-]

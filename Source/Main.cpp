@@ -1,7 +1,6 @@
 #include <pch.hpp>
 #include "Application/Application.hpp"
 
-
 int main([[maybe_unused]] int argc, [[maybe_unused]] char* argv[]) try
 {
 	std::unique_ptr<Application> _App(new Application());
@@ -21,9 +20,9 @@ catch (...)
 
 
 /**
-*	Windows Entry Point (for Release & Distribution)
+*	Windows Entry Point (for Release & Distribution) as WindowedApp (no console) 
 */
-#if defined(PLATFORM_WINDOWS) && (defined(RELEASE) || defined(DIST))
+#if defined(IMJPEG_PLATFORM_WINDOWS) && (defined(IMJPEG_RELEASE) || defined(IMJPEG_DIST))
 
 int WINAPI WinMain(
 	[[maybe_unused]] _In_ HINSTANCE instance,

@@ -10,9 +10,9 @@
 
 Application::Application()
 	:
-	m_window(new Window("OpenGL Play Ground", 800, 600))
+	m_window(new Window("ImJpeg", 800, 600))
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 
 	// Make singleton
 	if (m_instance)
@@ -23,20 +23,10 @@ Application::Application()
 	m_imgui_renderer = std::make_unique<ImGuiRenderer>();
 
 	// Listen to Window Events callback
-	m_window->SetEventCallback(BIND_FUN(Application::OnEvent));
+	m_window->SetEventCallback(IMJPEG_BIND_FUN(Application::OnEvent));
 
 	// Push Main Menu Scene as the initial scene
 	PushScene(std::make_unique<MainMenuScene>());
-
-	// Print some OpenGL info
-	const GLubyte* vendor = glGetString(GL_VENDOR);
-	const GLubyte* renderer = glGetString(GL_RENDERER);
-	const GLubyte* version = glGetString(GL_VERSION);
-	std::cout << "=======[ OpenGL Info ]=======\n"
-		<< "Vendor: " << vendor << '\n'
-		<< "Renderer: " << renderer << '\n'
-		<< "Version: " << version << '\n'
-		<< "==============================\n";
 }
 
 void Application::PushScene(std::unique_ptr<Scene> scene)
@@ -73,9 +63,9 @@ void Application::OnEvent(Event& event)
 	/*dispatcher.Dispatch<WindowCloseEvent>([this](WindowCloseEvent& e) -> bool
 	{
 	});*/
-	dispatcher.Dispatch<WindowCloseEvent>(BIND_FUN(Application::OnWindowClose));
-	dispatcher.Dispatch<WindowResizeEvent>(BIND_FUN(Application::OnWindowResize));
-	dispatcher.Dispatch<FrameBufferResizeEvent>(BIND_FUN(Application::OnFrameBufferResize));
+	dispatcher.Dispatch<WindowCloseEvent>(IMJPEG_BIND_FUN(Application::OnWindowClose));
+	dispatcher.Dispatch<WindowResizeEvent>(IMJPEG_BIND_FUN(Application::OnWindowResize));
+	dispatcher.Dispatch<FrameBufferResizeEvent>(IMJPEG_BIND_FUN(Application::OnFrameBufferResize));
 
 
 	//=== Scene::OnEvent ===//
@@ -93,7 +83,7 @@ void Application::OnEvent(Event& event)
 
 bool Application::OnWindowClose(WindowCloseEvent& /*event*/)
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 
 	/*
 		if(we shouldn't close yet, there is still some work running...)
@@ -105,7 +95,7 @@ bool Application::OnWindowClose(WindowCloseEvent& /*event*/)
 
 bool Application::OnWindowResize(WindowResizeEvent& event)
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 
 	// Update OpenGL Viewport
 	glAssert(glViewport(0, 0, event.GetWidth(), event.GetHeight()));
@@ -116,7 +106,7 @@ bool Application::OnWindowResize(WindowResizeEvent& event)
 
 bool Application::OnFrameBufferResize(FrameBufferResizeEvent& event)
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 
 	// Update OpenGL Viewport
 	glAssert(glViewport(0, 0, event.GetWidth(), event.GetHeight()));
@@ -184,7 +174,7 @@ void Application::Run()
 
 Application::~Application()
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 
 	//=== Scene::OnDestroy() ===//
 	std::for_each(m_scenes.rbegin(), m_scenes.rend(), [](const std::unique_ptr<Scene>& scene)

@@ -2,15 +2,11 @@
 #include "MainMenuScene.hpp"
 #include <Application/Application.hpp>
 #include <glad/glad.h>
-#include <Scenes/StaticTriangleScene/StaticTriangleScene.hpp>
-#include <Scenes/DynamicTriangleScene/DynamicTriangleScene.hpp>
-#include <Scenes/StaticSquareScene/StaticSquareScene.hpp>
-//#include <Scenes/DynamicSquareScene/DynamicSquareScenee.hpp>
-#include <Scenes/Exercices/ExercicesScene.hpp>
+#include <Utility/OpenGLUtils.hpp>
 
 void MainMenuScene::OnCreate()
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 }
 
 void MainMenuScene::OnEvent([[maybe_unused]] Event& event)
@@ -47,18 +43,18 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Static Triangle", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<StaticTriangleScene>());
+			//Application::GetInstance()->PushScene(std::make_unique<StaticTriangleScene>());
 		}
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Dynamic Triangle", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<DynamicTriangleScene>());
+			//Application::GetInstance()->PushScene(std::make_unique<DynamicTriangleScene>());
 		}
 
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Static Square", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<StaticSquareScene>());
+			//Application::GetInstance()->PushScene(std::make_unique<StaticSquareScene>());
 		}
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Dynamic Square", button_size))
@@ -69,7 +65,7 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Exercices", button_size))
 		{
-			Application::GetInstance()->PushScene(std::make_unique<ExercicesScene>());
+			//Application::GetInstance()->PushScene(std::make_unique<ExercicesScene>());
 		}
 
 
@@ -90,6 +86,6 @@ void MainMenuScene::OnImGuiDraw()
 
 void MainMenuScene::OnDestroy()
 {
-	TRACE_FUNCTION();
+	IMJPEG_TRACE_FUNCTION();
 
 }

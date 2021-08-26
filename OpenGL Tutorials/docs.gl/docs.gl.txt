@@ -1,3 +1,0 @@
-http://docs.gl/
-is a huge documentation resource of opengl and es... all versions.
-just write name of function

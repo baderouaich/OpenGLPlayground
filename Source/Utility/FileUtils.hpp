@@ -3,7 +3,7 @@
 #include <fstream>
 #include <functional>
 
-#if defined(PLATFORM_WINDOWS)
+#if defined(IMJPEG_PLATFORM_WINDOWS)
 	#include <Windows.h>
 #endif
 
@@ -26,7 +26,7 @@ public:
 	*/
 	static fs::path GetExecutableFilePath()
 	{
-#if defined(PLATFORM_WINDOWS)
+#if defined(IMJPEG_PLATFORM_WINDOWS)
 		wchar_t path[MAX_PATH]{ 0 };
 		::GetModuleFileName(NULL, path, MAX_PATH);
 		return fs::path(path);

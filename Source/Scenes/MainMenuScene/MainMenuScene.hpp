@@ -1,7 +1,5 @@
 #pragma once
 #include "Scenes/Scene.hpp"
-#include <Graphics/Texture/Texture.hpp>
-#include <Graphics/Shader/Shader.hpp>
 
 class MainMenuScene : public Scene
 {
@@ -16,6 +14,5 @@ public: /* Scene Life Cicle */
 	void OnDraw()  override;
 	void OnImGuiDraw()  override;
 	void OnDestroy()  override;
-
 };
 

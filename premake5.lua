@@ -1,44 +1,33 @@
-require("premake", ">=5.0.0-alpha15") -- allow premake 5.0.0 alpha15 and up only 
-
-workspace "OpenGLPlayground"  -- Workspace which is the solution in windows, in xcode will be something else
-	architecture "x86_64" -- Targeted architecture x64
-	startproject "OpenGLPlayground" -- Set 'OpenGLPlayground' project as start up project
+workspace "imjpeg"
+	architecture "x86_64"
+	startproject "imjpeg"
 	
 	configurations
 	{
 		"Debug", 
 		"Release", 
-		"Dist" -- Distribution, when everything is done, optimization: Full
+		"Dist" -- Distribution (optimization: Full)
 	}
 	
-	--https://github.com/premake/premake-core/wiki/flags
 	flags
 	{
-		"MultiProcessorCompile", -- Speed up compile time, Enable Visual Studio to use multiple compiler processes when building.
+		"MultiProcessorCompile", 
 	}
 
-
---Set up the output directory For multiplatforms, see https://github.com/premake/premake-core/wiki/Tokens
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["glfw"]			= "%{wks.location}/Dependencies/glfw/include"  -- Graphics Library Framework lib
 IncludeDir["glad"]			= "%{wks.location}/Dependencies/glad/include"-- OpenGL lib
 IncludeDir["imgui"]			= "%{wks.location}/Dependencies/imgui" 	-- UI lib
-IncludeDir["glm"]			= "%{wks.location}/Dependencies/glm/include" 	-- GLM math lib
-IncludeDir["stb"]			= "%{wks.location}/Dependencies/stb/include" 	-- stb utils (image...)
 
--- Organize libs solution in a single filtered directory 
 group "Dependencies"
-	include "Dependencies/glfw" --there is a premake5.lua in Dependencies/glfw/ which will be detected and set things up for us
+	include "Dependencies/glfw"
 	include "Dependencies/glad"
 	include "Dependencies/imgui"
-	include "Dependencies/glm"
-	include "Dependencies/stb"
 group ""
 
-project "OpenGLPlayground"
+project "imjpeg"
 	language "C++"
 	cppdialect "C++latest" -- C++20 
 	staticruntime "On"
@@ -72,12 +61,11 @@ project "OpenGLPlayground"
 	---[[ Add Libraries include directories ]]---	
 	includedirs
 	{
-		"Source", -- include Source/ dir so we can include e.g "Core/Core.hpp" directly, not to keep going back steps e.g "../../Core/Core.hpp"
+		"Source",
 		"%{IncludeDir.glfw}",
 		"%{IncludeDir.glad}",
 		"%{IncludeDir.imgui}",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb}",
+
 	}
 
 
@@ -87,8 +75,6 @@ project "OpenGLPlayground"
 		"glfw", -- Links glfw.lib
 		"glad", 
 		"imgui",
-		"glm",
-		"stb",
 	}
 
 
@@ -99,7 +85,7 @@ project "OpenGLPlayground"
 
 		defines
 		{
-			"PLATFORM_WINDOWS",
+			"IMJPEG_PLATFORM_WINDOWS",
 
 			-- Common MSVC warnings defines
 			"_CRT_SECURE_NO_DEPRECATE",
@@ -115,7 +101,7 @@ project "OpenGLPlayground"
 	filter "system:linux"
 		defines
 		{
-			"PLATFORM_LINUX",
+			"IMJPEG_PLATFORM_LINUX",
 		}
 		links
 		{
@@ -129,7 +115,7 @@ project "OpenGLPlayground"
 	filter "system:macosx"
 		defines
 		{
-			"PLATFORM_MACOS",
+			"IMJPEG_PLATFORM_MACOS",
 		}	
 		links
 		{
@@ -143,16 +129,15 @@ project "OpenGLPlayground"
 	---[[ Configurations ]]---
 	filter "configurations:Debug"
 		kind "ConsoleApp" -- Debug we need console for logging
-		defines "DEBUG"
+		defines "IMJPEG_DEBUG"
 		runtime "Debug"
 		symbols "Full" --vs17 and newer | symbols "On"
 		optimize "Off" -- No optimization will be performed.
 
 
 	filter "configurations:Release"
-		kind "ConsoleApp" -- we need console for logging in CLI
-		--kind "WindowedApp" -- Release as windowed application
-		defines "RELEASE"
+		kind "WindowedApp" -- Release as windowed application
+		defines "IMJPEG_RELEASE"
 		runtime "Release"
 		optimize "On" -- Perform a balanced set of optimizations.
 		inlining "Explicit" -- Only inline functions explicitly marked with the inline keyword.
@@ -164,9 +149,8 @@ project "OpenGLPlayground"
 		}
 
 	filter "configurations:Dist"
-		kind "ConsoleApp" -- we need console for logging in CLI
-		--kind "WindowedApp" -- Distribution as windowed application
-		defines "DIST"
+		kind "WindowedApp" -- Distribution as windowed application
+		defines "IMJPEG_DIST"
 		runtime "Release"
 		optimize "Full" -- Full optimization.
 		inlining "Auto" -- Inline any suitable function for full performance

@@ -1,12 +1,12 @@
 /// Precompiled Header ///
 #pragma once
-#ifndef PCH_H
-#define PCH_H
+#ifndef IMJPEG_PCH_H
+#define IMJPEG_PCH_H
 
 
 /// Platform specific includes ///
 /// Windows
-#if defined(PLATFORM_WINDOWS)
+#if defined(IMJPEG_PLATFORM_WINDOWS)
 	#include <Windows.h>
 	#include <TlHelp32.h>
 #endif
@@ -16,18 +16,6 @@
 /// OpenGL: GLAD
 #pragma warning(push, 0) /* Disable all <glad/glad.h>'s warnings */
 #include <glad/glad.h>
-#pragma warning(pop)
-///
-
-/// Math: glm
-#pragma warning(push, 0) /* Disable all <glm/glm.hpp>'s warnings */
-#include <glm/glm.hpp> 
-#include <glm/vec2.hpp> 
-#include <glm/vec3.hpp> 
-#include <glm/vec4.hpp> 
-#include <glm/mat4x4.hpp> 
-#include <glm/gtc/matrix_transform.hpp> 
-#include <glm/gtc/type_ptr.hpp> 
 #pragma warning(pop)
 ///
 
@@ -46,14 +34,8 @@
 ///
 
 
-/// stb tools: stb_image
-#pragma warning(push, 0) /* Disable all <stb/stb_image.h>'s warnings */
-#include <stb/stb_image.h>
-#pragma warning(pop)
-///
 
-
-///the C++ Standard Libraries
+///the C++20 Standard Libraries
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -94,5 +76,5 @@
 
 
 
-#endif // !PCH_H
+#endif // !IMJPEG_PCH_H
 
