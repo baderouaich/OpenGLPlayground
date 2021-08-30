@@ -12,6 +12,8 @@ project "glad"
 	--All files GLAD has
 	files
 	{
+		"premake5.lua",
+		
 		"include/glad/glad.h",
 		"include/KHR/khrplatform.h",
 		"src/glad.c"

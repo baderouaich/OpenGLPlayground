@@ -17,6 +17,8 @@ project "glm"
 
 	files
 	{
+		"premake5.lua",
+		
 		"**.hpp",
 		"src/glm.cpp" -- to compile as static lib
 	}

@@ -15,7 +15,7 @@ the application will crash or display undefined behavior.
 #define BIND_FUN(fun) [this](auto&&... args) -> decltype(auto) { return this->fun(std::forward<decltype(args)>(args)...); }
 
 #if DEBUG
-	#define TRACE_FUNCTION() [[maybe_unused]] const auto _CONCAT(_, __LINE) = std::printf("%s\n",  __FUNCTION__);
+	#define TRACE_FUNCTION() [[maybe_unused]] const auto _CONCAT(_, __LINE__) = std::printf("%s\n",  __FUNCTION__);
 #else
 	#define TRACE_FUNCTION() 
 #endif

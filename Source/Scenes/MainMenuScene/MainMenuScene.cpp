@@ -5,7 +5,7 @@
 #include <Scenes/StaticTriangleScene/StaticTriangleScene.hpp>
 #include <Scenes/DynamicTriangleScene/DynamicTriangleScene.hpp>
 #include <Scenes/StaticSquareScene/StaticSquareScene.hpp>
-//#include <Scenes/DynamicSquareScene/DynamicSquareScenee.hpp>
+#include <Scenes/DynamicSquareScene/DynamicSquareScene.hpp>
 #include <Scenes/Exercices/ExercicesScene.hpp>
 
 void MainMenuScene::OnCreate()
@@ -32,7 +32,6 @@ void MainMenuScene::OnImGuiDraw()
 	const auto [win_w, win_h] = Application::GetInstance()->GetWindow()->GetSize();
 	const auto [win_x, win_y] = Application::GetInstance()->GetWindow()->GetPosition();
 
-	const auto button_size = ImVec2(win_w * 0.30f, 36.0f);
 	ImGui::Begin(typeid(this).name(), nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove);
 	ImGui::SetWindowPos(ImVec2{ 0.0f, 0.0f });
 	ImGui::SetWindowSize(ImVec2{ static_cast<float>(win_w), static_cast<float>(win_h) });
@@ -42,6 +41,7 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::SetCursorPos(ImVec2((win_w - title_size.x ) / 2.0f, 60.0f));
 		ImGui::Text(title);
 
+		const auto button_size = ImVec2(win_w * 0.30f, 36.0f);
 		float y = 70.0f;
 
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
@@ -63,7 +63,7 @@ void MainMenuScene::OnImGuiDraw()
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
 		if (ImGui::Button("Dynamic Square", button_size))
 		{
-			//Application::GetInstance()->PushScene(std::make_unique<DynamicSquareScene>());
+			Application::GetInstance()->PushScene(std::make_unique<DynamicSquareScene>());
 		}
 
 		ImGui::SetCursorPos(ImVec2((win_w - button_size.x) / 2.0f, y += 50.0f));
@@ -91,5 +91,4 @@ void MainMenuScene::OnImGuiDraw()
 void MainMenuScene::OnDestroy()
 {
 	TRACE_FUNCTION();
-
 }

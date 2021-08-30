@@ -16,6 +16,8 @@ project "stb"
 
 	files
 	{
+		"premake5.lua",
+
 		"src/stb.c", -- stb.c has available stb tools include with macro STB_IMAGE_IMPLEMENTATION to compile as static lib
 	}
 

@@ -43,7 +43,6 @@ project "OpenGLPlayground"
 	cppdialect "C++latest" -- C++20 
 	staticruntime "On"
 
-
 	---[[ Binary Output dirs ]]---
 	targetdir ("%{wks.location}/Bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("%{wks.location}/Bin-Intermediate/" .. outputdir .. "/%{prj.name}")
@@ -51,7 +50,6 @@ project "OpenGLPlayground"
 	-- Precompiled Header
 	pchheader "pch.hpp"
 	pchsource "Source/pch.cpp"
-	
 
 	---[[ Disable RTTI to optimize if we're not using dynamic_cast or typeid ]]---
 	--rtti "Off"
@@ -102,10 +100,10 @@ project "OpenGLPlayground"
 			"PLATFORM_WINDOWS",
 
 			-- Common MSVC warnings defines
-			"_CRT_SECURE_NO_DEPRECATE",
 			"_CRT_SECURE_NO_WARNINGS",
-			"_CRT_NONSTDC_NO_WARNINGS",
-			"_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS",
+			--"_CRT_SECURE_NO_DEPRECATE",
+			--"_CRT_NONSTDC_NO_WARNINGS",
+			--"_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS",
 		}
 		links
 		{

@@ -19,6 +19,8 @@ project "imgui"
 
 	files
 	{
+		"premake5.lua",
+		
 		"*.h",
 		"*.cpp", -- Dont include backends/*, use only *.cpp instead of **.cpp (recurse)
 	}
