@@ -1,7 +1,6 @@
 #include <pch.hpp>
 #include "Input.hpp"
 #include <Application/Application.hpp>
-
 #include <GLFW/glfw3.h>
 
 bool Input::IsKeyPressed(KeyCode keycode) noexcept

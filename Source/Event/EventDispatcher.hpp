@@ -15,7 +15,8 @@ public:
 	}
 
 	template<typename T>
-	bool Dispatch(EventFun<T> func)
+	//bool Dispatch(EventFun<T> func)
+	bool Dispatch(const EventFun<T>& func)
 	{
 		if (m_event.GetEventType() == T::GetStaticType())
 		{

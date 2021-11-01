@@ -1,8 +1,5 @@
 #pragma once
-
-//Keyboard
 #include <Input/Keyboard/KeyCodes.hpp>
-//Mouse
 #include <Input/Mouse/MouseCodes.hpp>
 
 class Input

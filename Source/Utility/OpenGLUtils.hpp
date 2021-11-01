@@ -85,7 +85,7 @@ public:
 				} \
 			} while (false)
 #else // for full performance
-	#define glAssert(call) (call);
+	#define glAssert(call) (call)
 #endif // DEBUG
 
 
