@@ -23,7 +23,7 @@ void MainMenuScene::OnUpdate([[maybe_unused]] float dt)
 
 void MainMenuScene::OnDraw()
 {
-	glAssert(glClearColor(0.22f, 0.9f, 0.7f, 0.95f));
+	glAssert(glClearColor(0.434F + 40,0.434F + 30,0.434F+40, 1.0f));
 	glAssert(glClear(GL_COLOR_BUFFER_BIT));
 }
 
