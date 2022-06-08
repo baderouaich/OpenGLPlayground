@@ -42,8 +42,8 @@ Application::Application()
 void Application::PushScene(std::unique_ptr<Scene> scene)
 {
 	//=== Scene::OnCreate ===//
-	m_scenes.emplace_back(std::move(scene))->OnCreate();
-	//m_scenes.back()->OnCreate();
+	m_scenes.emplace_back(std::move(scene));
+	m_scenes.back()->OnCreate();
 }
 
 void Application::UpdateDeltaTime() noexcept

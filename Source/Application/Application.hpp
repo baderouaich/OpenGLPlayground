@@ -18,7 +18,7 @@ the application will crash or display undefined behavior.
 	#ifndef _CONCAT
 		#define _CONCAT(x, y) x##y
 	#endif
-	#define TRACE_FUNCTION() [[maybe_unused]] const auto _CONCAT(_, __LINE__) = std::printf("%s\n",  __FUNCTION__);
+	#define TRACE_FUNCTION() [[maybe_unused]] const auto _CONCAT(_, __LINE__) = std::printf("%s\n",  __PRETTY_FUNCTION__);
 #else
 	#define TRACE_FUNCTION() 
 #endif

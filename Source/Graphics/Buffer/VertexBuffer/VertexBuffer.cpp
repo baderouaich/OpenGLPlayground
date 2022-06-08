@@ -26,7 +26,7 @@ void VertexBuffer::Unbind() const noexcept
 void VertexBuffer::SetBufferData(const float* vertices, const GLsizeiptr size)
 {
 	this->Bind();
-	// p29 s5.2 /We call to the glBufferData function that copies the previously defined vertex data into the buffer’s memory GPU
+	// p29 s5.2 /We call to the glBufferData function that copies the previously defined vertex data into the buffers memory GPU
 	glAssert(glBufferData(GL_ARRAY_BUFFER, size, vertices, static_cast<GLenum>(m_draw_type)));
 
 }
