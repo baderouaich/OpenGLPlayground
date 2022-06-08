@@ -4,7 +4,6 @@
 #include <cassert>
 #include <cstddef>
 #include <cstdint>
-#include <source_location>	// std::source_location
 #include <csignal>
 
 class OpenGLUtils final
@@ -35,7 +34,7 @@ public:
 	*	Checks wether an extension available for example: GL_NVX_gpu_memory_info
 	*	returns extension index of glGetStringi() if found, -1 otherwise
 	*/
-	static const GLint IsExtensionSupported(const char* extension_name) noexcept
+	static GLint IsExtensionSupported(const char* extension_name) noexcept
 	{
 		GLint ext_count{};
 		glGetIntegerv(GL_NUM_EXTENSIONS, &ext_count);
@@ -73,13 +72,11 @@ public:
 				const GLenum err = glGetError(); \
 				if (err != GL_NO_ERROR) \
 				{  \
-					const std::source_location loc = std::source_location::current(); /* c++20 only */ \
 					std::cerr << "============= [OpenGL Error] =============\n" \
 						<< "Error: " << OpenGLUtils::StringifyGLErrorEnum(err) << '\n' \
-						<< "File: " << loc.file_name() << '\n' \
-						<< "Function: " << loc.function_name() << '\n' \
-						<< "Line: " << loc.line() << '\n' \
-						<< "Column: " << loc.column() << '\n' \
+						<< "File: " << __FILE__ << '\n' \
+						<< "Function: " << __PRETTY_FUNCTION__ << '\n' \
+						<< "Line: " << __LINE__ << '\n' \
 						<< "=========================================="; \
 						DEBUG_BREAK(); \
 				} \

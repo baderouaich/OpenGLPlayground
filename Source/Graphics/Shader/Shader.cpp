@@ -242,8 +242,11 @@ GLenum Shader::ShaderDataTypeToOpenGLBaseType(const ShaderDataType type) noexcep
 	case ShaderDataType::Vec3i:		return GL_INT;
 	case ShaderDataType::Vec4i:		return GL_INT;
 	case ShaderDataType::Bool:		 return GL_BOOL;
+	default: 
+		assert(false && "<unknown ShaderDataType>");
+		break;
 	}
 
-	assert(false && "<unknown ShaderDataType>");
+	
 	return 0;
 }

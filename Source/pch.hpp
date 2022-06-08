@@ -1,5 +1,4 @@
 /// Precompiled Header ///
-#pragma once
 #ifndef PCH_H
 #define PCH_H
 
@@ -14,13 +13,10 @@
 
 
 /// OpenGL: GLAD
-#pragma warning(push, 0) /* Disable all <glad/glad.h>'s warnings */
 #include <glad/glad.h>
-#pragma warning(pop)
 ///
 
 /// Math: glm
-#pragma warning(push, 0) /* Disable all <glm/glm.hpp>'s warnings */
 #include <glm/glm.hpp> 
 #include <glm/vec2.hpp> 
 #include <glm/vec3.hpp> 
@@ -28,28 +24,21 @@
 #include <glm/mat4x4.hpp> 
 #include <glm/gtc/matrix_transform.hpp> 
 #include <glm/gtc/type_ptr.hpp> 
-#pragma warning(pop)
 ///
 
 /// Graphic library framwork: GLFW
-#pragma warning(push, 0) /* Disable all <GLFW/glfw3.h>'s warnings */
 #include <GLFW/glfw3.h>
-#pragma warning(pop)
 ///
 
 /// UI: ImGui
-#pragma warning(push, 0) /* Disable all  <imgui.h>'s warnings */
 #include <imgui.h>
 #include <backends/imgui_impl_opengl3.h>
 #include <backends/imgui_impl_glfw.h>
-#pragma warning(pop)
 ///
 
 
 /// stb tools: stb_image
-#pragma warning(push, 0) /* Disable all <stb/stb_image.h>'s warnings */
 #include <stb/stb_image.h>
-#pragma warning(pop)
 ///
 
 
@@ -80,7 +69,8 @@
 #include <numeric>
 #include <regex>
 #include <exception>
-#include <source_location>	// std::source_location::current() file column function...
+
+// #include <source_location>	// std::source_location::current() file column function...
 
 #include <cstdio>
 #include <cstdlib>

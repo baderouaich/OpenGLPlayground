@@ -40,10 +40,7 @@ public:
 		std::string filename_or_source;
 	};
 
-	// to use Shader::EnumValue
-	using enum ShaderSourceType;
-	using enum ShaderType;
-	using enum ShaderDataType;
+
 
 public:
 	explicit Shader(const std::initializer_list<ShaderProgramData>& shaders_data);

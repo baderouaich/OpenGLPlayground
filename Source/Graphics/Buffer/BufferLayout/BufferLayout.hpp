@@ -11,7 +11,7 @@ public:
 
 public: /*Accesors*/
 	const std::vector<BufferElement>& GetElements() const noexcept { return m_elements; }
-	const std::uint32_t GetStride() const noexcept { return m_stride; }
+	std::uint32_t GetStride() const noexcept { return m_stride; }
 
 public: /* foreach iterators access */
 	std::vector<BufferElement>::iterator begin() noexcept { return m_elements.begin(); }

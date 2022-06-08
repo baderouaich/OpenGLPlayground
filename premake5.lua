@@ -56,7 +56,7 @@ project "OpenGLPlayground"
 	--rtti "Off"
 
 	---[[ Enable the toolset's maximum warning level ]]---
-	warnings "Extra"
+	--warnings "Extra"
 	
 	---[[ Source files ]]---
 	files
